@@ -1,0 +1,109 @@
+$lightgrey: #DBDBDB;
+$red: #FF5A5F;
+$darkred: rgb(223, 60, 71);
+$black: #484848;
+$green: rgb(0, 132, 137);
+
+main {
+  position: relative;
+  top: 115px;
+  color: $black;
+  padding: 0 80px;
+
+  .bg {
+    height: 440px;
+    background-image: url('https://img00.deviantart.net/d49a/i/2013/115/8/a/middle_earth___theme_park_by_lunatteo-d631h0n.jpg');
+    background-size: cover;
+  }
+
+  .form-container {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 568px;
+      height: 562px;
+      box-sizing: border-box;
+      padding: 20px 32px 32px;
+      position: relative;
+      background-color: white;
+      border: 1px solid $lightgrey;
+    }
+
+    a {
+      display: inline-block;
+      font-size: 30px;
+      margin-bottom: 10px;
+      font-weight: lighter;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 20px 0;
+    }
+
+    .err {
+      color: $red;
+      margin: 10px 0;
+    }
+
+    input {
+      color: $black;
+      width: 100%;
+      height: 44px;
+      box-sizing: border-box;
+      padding: 0 11px;
+      margin-bottom: 16px;
+      border: 1px solid $lightgrey;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      border: 1px solid $green;
+    }
+
+    button {
+      margin: 30px 0 10px;
+      width: 100%;
+      padding: 12px;
+      background-color: $red;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: $darkred;
+    }
+
+    form div:last-child {
+      color: $black;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      padding: 10px;
+
+      a {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 8px;
+        color: $green;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

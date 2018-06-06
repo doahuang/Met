@@ -5,3 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Spot.destroy_all
+Booking.destroy_all
+Review.destroy_all
+
+ActiveRecord::Base.transaction do
+  User.create!(username: 'test', password: '123123')
+  2.times do
+    User.create!(username: Faker::LordOfTheRings.character, password: '123123')
+  end
+
+  5.times do
+    Spot.create!(
+      name: Faker::Hobbit.location,
+      latitude: rand(0.0..100.0).round(2),
+      longitude: rand(0.0..100.0).round(2),
+      landscape: %w(volcano village mountain land).sample,
+      size: rand(1..100),
+      price: rand(1..10000),
+      description: 'just some random description',
+      owner_id: rand(1..User.count)
+    )
+  end
+
+  3.times do
+    begin_date = Date.new(2018, rand(1..12), rand(1..31))
+    Booking.create!(
+      begin_date: begin_date,
+      end_date: begin_date + rand(1..120),
+      guests: rand(1..100),
+      booker_id: rand(1..User.count),
+      spot_id: rand(1..Spot.count)
+    )
+  end
+
+  5.times do
+    Review.create!(
+      rating: rand(1..5),
+      body: %w(ok good better best wow).sample,
+      reviewer_id: rand(1..User.count),
+      spot_id: rand(1..Spot.count)
+    )
+  end
+end

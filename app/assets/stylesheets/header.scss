@@ -1,0 +1,96 @@
+$lightgrey: #DBDBDB;
+$red: #FF5A5F;
+$darkred: rgb(223, 60, 71);
+$black: #484848;
+
+header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  height: 80px;
+  font-size: 14px;
+  border-bottom: 1px solid $lightgrey;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    box-sizing: border-box;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: $red;
+
+    a:hover {
+      color: $darkred;
+    }
+  }
+
+  .search-bar {
+    color: $black;
+    display: flex;
+    width: 460px;
+    height: 48px;
+    box-sizing: border-box;
+    border: 1px solid $lightgrey;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    img {
+      padding: 10px 15px;
+      width: 29px;
+      height: 28px;
+    }
+
+    input {
+      letter-spacing: 0.5px;
+      width: 411px;
+      font-size: 16px;
+      border: none;
+    }
+  }
+
+  nav {
+    color: $black;
+    letter-spacing: 0.3px;
+    margin-right: 8px;
+
+    ul {
+      height: 78px;
+      display: flex;
+    }
+
+    li {
+      margin: 0 8px;
+      border-bottom: 2px solid transparent;
+    }
+
+    li:hover {
+      border-bottom: 2px solid grey;
+    }
+
+    a {
+      display: table-cell;
+      vertical-align: middle;
+      height: 78px;
+      padding: 0 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  nav ul li{
+    display: none;
+  }
+
+  nav .group {
+    display: inline-block;
+  }
+}
