@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../utils/route';
 
 import GreetingContainer from './greeting/greeting_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-import { AuthRoute, ProtectedRoute } from '../utils/route';
+import SpotIndexContainer from './spot/spot_index_container';
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <AuthRoute path="/login" component={LoginFormContainer} />
       </div>
+      <Route exact path="/" component={SpotIndexContainer} />
     </main>
     <div className='screen'></div>
   </div>

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import usersReducer from './users';
+import spotsReducer from './spots';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
-  // spots: spotsReducer,
+  spots: spotsReducer
   // bookings: bookingsReducer,
   // reviews: reviewsReducer,
 });

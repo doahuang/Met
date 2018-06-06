@@ -13,13 +13,14 @@ Review.destroy_all
 
 ActiveRecord::Base.transaction do
   User.create!(username: 'test', password: '123123')
-  2.times do
+  3.times do
     User.create!(username: Faker::LordOfTheRings.character, password: '123123')
   end
 
-  5.times do
+  12.times do
     Spot.create!(
       name: Faker::Hobbit.location,
+      image_url: "https://picsum.photos/400/300/?image=#{rand(900..1000)}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
       landscape: %w(volcano village mountain land).sample,
@@ -30,7 +31,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  3.times do
+  6.times do
     begin_date = Date.new(2018, rand(1..12), rand(1..31))
     Booking.create!(
       begin_date: begin_date,
@@ -41,7 +42,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  5.times do
+  9.times do
     Review.create!(
       rating: rand(1..5),
       body: %w(ok good better best wow).sample,

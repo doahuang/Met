@@ -23,6 +23,8 @@ class Spot < ApplicationRecord
   belongs_to :owner, class_name: :User
   has_many :bookings
   has_many :reviews
+  has_many :bookers, through: :bookings, source: :booker
+  has_many :reviewers, through: :reviews, source: :reviewer
 
   def location
     'geocoder translated latitude and longitude'

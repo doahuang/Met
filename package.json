@@ -1,4 +1,12 @@
 {
+  "engines": {
+    "node": "8.4.0",
+    "npm": "6.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch -d"
+  },
   "name": "Met",
   "private": true,
   "dependencies": {
@@ -23,10 +31,6 @@
   "directories": {
     "lib": "lib",
     "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch -d"
   },
   "repository": {
     "type": "git",
