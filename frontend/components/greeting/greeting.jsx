@@ -9,7 +9,7 @@ const Greeting = ({ currentUser, login, logout }) => {
       <li><Link to='/'>Help</Link></li>
       <li className='group'><Link to='/signup'>Sign up</Link></li>
       <li className='group'><Link to='/login'>Log in</Link></li>
-      <li className='group demo'><Link to='/spots' onClick={() => demo() }>Demo</Link></li>
+      <li className='group demo'><Link to='/' onClick={() => demo() }>Demo</Link></li>
     </ul>
   );
   const userIndex = () => (

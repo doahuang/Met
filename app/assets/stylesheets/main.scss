@@ -4,20 +4,19 @@ $darkred: rgb(223, 60, 71);
 $black: #484848;
 $green: rgb(0, 132, 137);
 
+// https://img00.deviantart.net/d49a/i/2013/115/8/a/middle_earth___theme_park_by_lunatteo-d631h0n.jpg
+
 main {
   position: absolute;
   box-sizing: border-box;
-  padding: 0 80px;
-  width: 100%;
+  padding: 0 60px;
   top: 115px;
   color: $black;
 
   .bg {
-    height: 450px;
-    background-image: url('https://img00.deviantart.net/d49a/i/2013/115/8/a/middle_earth___theme_park_by_lunatteo-d631h0n.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    h2 {
+      margin-left: 20px;
+    }
   }
 
   .form-container {
@@ -108,6 +107,15 @@ main {
       a:hover {
         text-decoration: underline;
       }
+    }
+  }
+
+  .spot-index {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin: 20px;
     }
   }
 }

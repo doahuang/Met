@@ -12,9 +12,8 @@ const App = () => (
     <header>
       <div>
         <div className='logo'><Link to='/'>Met</Link></div>
-        <div className='search-bar'>
-          <img src='../assets/magnifier.png'/><input placeholder='Try "Shire"' />
-        </div>
+        <div className='search-bar'><img src='https://raw.githubusercontent.com/doahuang/Met/master/app/assets/images/magnifier.png'/>
+        <input placeholder='Try "Shire"' /></div>
       </div>
       <nav><GreetingContainer /></nav>
     </header>

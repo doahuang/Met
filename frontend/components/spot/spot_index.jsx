@@ -12,7 +12,7 @@ export default class SpotIndex extends React.Component {
     ));
     return (
       <div>
-        <ul>{spots}</ul>
+        <ul className='spot-index'>{spots}</ul>
       </div>
     );
   }
