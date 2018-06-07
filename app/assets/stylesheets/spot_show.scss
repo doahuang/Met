@@ -1,0 +1,44 @@
+$lightgrey: #DBDBDB;
+$red: #FF5A5F;
+$darkred: rgb(223, 60, 71);
+$black: #484848;
+$green: rgb(0, 132, 137);
+$blue: #008489;
+$yellow: #995c1f;
+
+.spot-show-banner {
+  img {
+    width: 100%;
+    height: 368px;
+  }
+}
+
+.spot-show-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 37px;
+  padding: 24px;
+  height: 900px;
+
+  .spot-show-info {
+    flex-grow: 2;
+    margin: 0 8px;
+    padding-right: 80px;
+  }
+
+  .spot-show-review {
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+    }
+  }
+
+  .spot-show-booking {
+    border: 1px solid $lightgrey;
+    flex-grow: 1;
+    height: 355px;
+    box-sizing: border-box;
+    padding: 24px;
+  }
+}

@@ -7,6 +7,7 @@ import NavbarContainer from './nav/navbar_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SpotIndexContainer from './spot/spot_index_container';
+import SpotShowContainer from './spot/spot_show_container';
 
 const App = () => (
   <div>
@@ -20,10 +21,8 @@ const App = () => (
     <section>
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
-
       <Route path="/bookings" render={()=><h1>Booking index page</h1>} />
-      <Route path={`/spots/:spotId`} render={()=><h1>Spot show page</h1>} />
-
+      <Route path={`/spots/:spotId`} component={SpotShowContainer} />
       <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path="/" component={SpotIndexContainer} />
     </section>

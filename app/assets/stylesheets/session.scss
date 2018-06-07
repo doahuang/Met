@@ -7,10 +7,10 @@ $blue: #008489;
 $yellow: #995c1f;
 
 section {
+  width: 100%;
   position: absolute;
   box-sizing: border-box;
-  padding: 0 80px;
-  top: 115px;
+  top: 82px;
   color: $black;
 
   .form-container {

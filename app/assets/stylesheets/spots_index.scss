@@ -6,12 +6,18 @@ $green: rgb(0, 132, 137);
 $blue: #008489;
 $yellow: #995c1f;
 
+section {
+  h2 {
+    margin: 35px 80px 0;
+  }
+}
+
 .spot-index {
   color: $black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 12px 0 50px;
+  margin: 12px 80px 50px;
 
   li {
     margin: 8px 8px 12px;
