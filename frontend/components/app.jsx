@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../utils/route';
 
-import GreetingContainer from './greeting/greeting_container';
+import Searchbar from './nav/searchbar';
+import NavbarContainer from './nav/navbar_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SpotIndexContainer from './spot/spot_index_container';
@@ -12,19 +13,20 @@ const App = () => (
     <header>
       <div>
         <div className='logo'><Link to='/'>Met</Link></div>
-        <div className='search-bar'><img src='https://raw.githubusercontent.com/doahuang/Met/master/app/assets/images/magnifier.png'/>
-        <input placeholder='Try "Shire"' /></div>
+        <Searchbar />
       </div>
-      <nav><GreetingContainer /></nav>
+      <nav><NavbarContainer /></nav>
     </header>
-    <main>
-      <div className='bg'>
-        <h2>Explore Middle-earth</h2>
-        <AuthRoute path="/signup" component={SignupFormContainer} />
-        <AuthRoute path="/login" component={LoginFormContainer} />
-      </div>
+    <section>
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <AuthRoute path="/login" component={LoginFormContainer} />
+
+      <Route path="/bookings" render={()=><h1>Booking index page</h1>} />
+      <Route path={`/spots/:spotId`} render={()=><h1>Spot show page</h1>} />
+
+      <Route exact path="/spots" component={SpotIndexContainer} />
       <Route exact path="/" component={SpotIndexContainer} />
-    </main>
+    </section>
     <div className='screen'></div>
   </div>
 );

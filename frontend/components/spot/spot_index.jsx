@@ -12,6 +12,7 @@ export default class SpotIndex extends React.Component {
     ));
     return (
       <div>
+        <h2>Explore Middle-earth</h2>
         <ul className='spot-index'>{spots}</ul>
       </div>
     );

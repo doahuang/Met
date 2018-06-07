@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { signup, login, logout } from '../../actions/session';
-import Greeting from './greeting';
+import Navbar from './navbar';
 
 const msp = ({ session, entities }) => ({
   currentUser: entities.users[session.id]
@@ -12,4 +12,4 @@ const mdp = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(msp, mdp)(Greeting);
+export default connect(msp, mdp)(Navbar);

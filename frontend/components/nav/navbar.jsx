@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({ currentUser, login, logout }) => {
+const Navbar = ({ currentUser, login, logout }) => {
   const demo = () => login({ username: 'test', password: '123123' });
   const visitorIndex = () => (
     <ul>
-      <li className='group demo'><Link to='/' onClick={() => demo() }>Demo</Link></li>
+      <li className='group demo'><Link to='/spots' onClick={() => demo() }>Demo</Link></li>
       <li><Link to='/'>Become a host</Link></li>
       <li><Link to='/'>Help</Link></li>
       <li className='group'><Link to='/signup'>Sign up</Link></li>
@@ -25,4 +25,4 @@ const Greeting = ({ currentUser, login, logout }) => {
   return currentUser ? userIndex() : visitorIndex();
 }
 
-export default Greeting;
+export default Navbar;

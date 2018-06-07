@@ -2,6 +2,9 @@ $lightgrey: #DBDBDB;
 $red: #FF5A5F;
 $darkred: rgb(223, 60, 71);
 $black: #484848;
+$green: rgb(0, 132, 137);
+$blue: #008489;
+$yellow: #995c1f;
 
 header {
   top: 0;
@@ -15,7 +18,7 @@ header {
   font-size: 14px;
   border-bottom: 1px solid $lightgrey;
 
-  > div {
+  >div {
     display: flex;
     align-items: center;
   }
@@ -40,8 +43,8 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     img {
-      padding: 10px 15px;
-      width: 29px;
+      padding: 10px 14px 10px 15px;
+      width: 28px;
       height: 28px;
     }
 
@@ -49,8 +52,29 @@ header {
       letter-spacing: 0.5px;
       width: 411px;
       font-size: 16px;
+      line-height: 22px;
       border: none;
     }
+
+    .search-result {
+      position: absolute;
+      top: 65px;
+      width: 458px;
+      height: 348px;
+      box-sizing: border-box;
+      background-color: white;
+      border: 1px solid $lightgrey;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      display: none;
+    }
+  }
+
+  .search-bar:hover .search-result {
+    display: block;
   }
 
   nav {
@@ -60,15 +84,16 @@ header {
 
     .demo {
       color: $red;
+      font-size: 16px;
       font-weight: 600;
     }
 
     ul {
-      height: 78px;
       display: flex;
     }
 
     li {
+      height: 78px;
       margin: 0 8px;
       border-bottom: 2px solid transparent;
     }

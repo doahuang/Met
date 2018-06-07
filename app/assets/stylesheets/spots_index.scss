@@ -1,0 +1,70 @@
+$lightgrey: #DBDBDB;
+$red: #FF5A5F;
+$darkred: rgb(223, 60, 71);
+$black: #484848;
+$green: rgb(0, 132, 137);
+$blue: #008489;
+$yellow: #995c1f;
+
+.spot-index {
+  color: $black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 12px 0 50px;
+
+  li {
+    margin: 8px 8px 12px;
+
+    img {
+      display: block;
+      width: 330px;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
+
+.quick-info {
+  padding-left: 2px;
+  padding-top: 12px;
+  line-height: 1.5;
+
+  p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  h4 {
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .loc {
+    color: $yellow;
+  }
+
+  .price {
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  span {
+    font-size: 14px;
+    color: $blue;
+  }
+
+  .rating {
+    color: $black;
+  }
+}

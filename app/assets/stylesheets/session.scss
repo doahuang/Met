@@ -3,21 +3,15 @@ $red: #FF5A5F;
 $darkred: rgb(223, 60, 71);
 $black: #484848;
 $green: rgb(0, 132, 137);
+$blue: #008489;
+$yellow: #995c1f;
 
-// https://img00.deviantart.net/d49a/i/2013/115/8/a/middle_earth___theme_park_by_lunatteo-d631h0n.jpg
-
-main {
+section {
   position: absolute;
   box-sizing: border-box;
-  padding: 0 60px;
+  padding: 0 80px;
   top: 115px;
   color: $black;
-
-  .bg {
-    h2 {
-      margin-left: 20px;
-    }
-  }
 
   .form-container {
     z-index: 1;
@@ -107,15 +101,6 @@ main {
       a:hover {
         text-decoration: underline;
       }
-    }
-  }
-
-  .spot-index {
-    display: flex;
-    flex-wrap: wrap;
-
-    li {
-      margin: 20px;
     }
   }
 }
