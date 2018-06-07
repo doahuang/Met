@@ -17,28 +17,30 @@ ActiveRecord::Base.transaction do
     User.create!(username: Faker::LordOfTheRings.character, password: '123123')
   end
 
+  pics = [913, 909, 990, 944, 949, 933, 969, 960, 929, 924, 997]
+
   12.times do
     Spot.create!(
       name: Faker::Hobbit.location,
-      image_url: "https://picsum.photos/300/200/?image=#{rand(900..1000)}",
+      image_url: "https://picsum.photos/300/200/?image=#{pics.sample}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
-      landscape: %w(volcano village mountain land).sample,
+      landscape: %w(Volcano Village Mountain Flatland Cave Castle).sample,
       size: rand(1..100),
       price: rand(1..10000),
-      description: 'just some random description',
-      owner_id: rand(1..User.count)
+      description: 'some random descriptions',
+      owner_id: rand(User.first.id..User.last.id)
     )
   end
 
   6.times do
-    begin_date = Date.new(2018, rand(1..12), rand(1..31))
+    begin_date = Date.new(2018, rand(1..12), rand(1..28))
     Booking.create!(
       begin_date: begin_date,
       end_date: begin_date + rand(1..120),
       guests: rand(1..100),
-      booker_id: rand(1..User.count),
-      spot_id: rand(1..Spot.count)
+      booker_id: rand(User.first.id..User.last.id),
+      spot_id: rand(Spot.first.id..Spot.last.id)
     )
   end
 
@@ -46,8 +48,8 @@ ActiveRecord::Base.transaction do
     Review.create!(
       rating: rand(1..5),
       body: %w(ok good better best wow).sample,
-      reviewer_id: rand(1..User.count),
-      spot_id: rand(1..Spot.count)
+      reviewer_id: rand(User.first.id..User.last.id),
+      spot_id: rand(Spot.first.id..Spot.last.id)
     )
   end
 end

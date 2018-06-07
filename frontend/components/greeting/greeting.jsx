@@ -5,11 +5,11 @@ const Greeting = ({ currentUser, login, logout }) => {
   const demo = () => login({ username: 'test', password: '123123' });
   const visitorIndex = () => (
     <ul>
+      <li className='group demo'><Link to='/' onClick={() => demo() }>Demo</Link></li>
       <li><Link to='/'>Become a host</Link></li>
       <li><Link to='/'>Help</Link></li>
       <li className='group'><Link to='/signup'>Sign up</Link></li>
       <li className='group'><Link to='/login'>Log in</Link></li>
-      <li className='group demo'><Link to='/' onClick={() => demo() }>Demo</Link></li>
     </ul>
   );
   const userIndex = () => (
