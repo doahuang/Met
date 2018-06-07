@@ -14,11 +14,10 @@ const Navbar = ({ currentUser, login, logout }) => {
   );
   const userIndex = () => (
     <ul>
-      <li><Link to='/'>Saved</Link></li>
+      <li className='group'><Link to='/spots/new'>Become a host</Link></li>
       <li className='group'><Link to='/bookings'>Bookings</Link></li>
-      <li className='group'><Link to='/'>Messages</Link></li>
+      <li><Link to='/'>Messages</Link></li>
       <li><Link to='/'>Help</Link></li>
-      <li><Link to='/'>Credit</Link></li>
       <li className='group'><Link to='/' onClick={ logout }>Log out</Link></li>
     </ul>
   );

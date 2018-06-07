@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Redirect, withRouter } from 'react-router-dom';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
@@ -13,6 +14,10 @@ export default class SpotShow extends React.Component {
   }
 
   render() {
+    if (!this.props.spot) {
+      //redirect to home
+    }
+
     let { name, imageUrl, latitude, longitude, landscape,
           location, size , price, description, rating = 5, owner_id } = this.props.spot;
     const makeStar = () => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));

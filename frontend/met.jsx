@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
+import { createSpot } from './actions/spot';
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -17,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  window.createSpot = createSpot;
+  window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });
