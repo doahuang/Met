@@ -1,70 +1,51 @@
-$lightgrey: #DBDBDB;
-$red: #FF5A5F;
-$darkred: rgb(223, 60, 71);
-$black: #484848;
-$green: rgb(0, 132, 137);
-$blue: #008489;
-$yellow: #995c1f;
+@import 'colors';
 
-section {
+.spot-index-container {
+  color: $black;
+
   h2 {
+    font-size: 25px;
     margin: 35px 80px 0;
   }
-}
 
-.spot-index {
-  color: $black;
-  display: flex;
-  flex-flow: wrap;
-  margin: 12px 80px 50px;
+  .spot-index {
+    display: flex;
+    flex-flow: wrap;
+    margin: 10px 80px 50px;
+    list-style: none;
 
-  .spot-index-item {
-    margin: 8px 8px 12px;
+    .spot-index-item {
+      li {
+        margin: 8px 8px 12px;
+        width: 310px;
 
-    li {
-      
+        img {
+          width: 100%;
+          border-radius: 4px;
+        }
+
+        .quick-info {
+          padding-top: 5px;
+          line-height: 1.5;
+          font-size: 14px;
+
+          .location {
+            color: $yellow;
+            font-size: 12px;
+            font-weight: bold;
+          }
+
+          h4 {
+            letter-spacing: 0.5px;
+            font-size: 16px;
+            display: inline-block;
+          }
+
+          .star {
+            color: $blue;
+          }
+        }
+      }
     }
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    border-radius: 4px;
-  }
-}
-
-.quick-info {
-  padding-left: 2px;
-  padding-top: 12px;
-  line-height: 1.5;
-
-  p {
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  h4 {
-    letter-spacing: 0.5px;
-    font-size: 16px;
-    font-weight: 600;
-    display: inline-block;
-  }
-
-  .loc {
-    color: $yellow;
-  }
-
-  .price {
-    font-size: 14px;
-    font-weight: 100;
-  }
-
-  span {
-    font-size: 14px;
-    color: $blue;
-  }
-
-  .rating {
-    color: $black;
   }
 }

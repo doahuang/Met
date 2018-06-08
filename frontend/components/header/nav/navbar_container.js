@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { signup, login, logout } from '../../actions/session';
+import { login, logout } from '../../../actions/session';
 import Navbar from './navbar';
 
 const msp = ({ session, entities }) => ({

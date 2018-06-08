@@ -1,0 +1,43 @@
+@import 'colors';
+
+.search-bar, .search-result {
+  width: 460px;
+  box-sizing: border-box;
+  border: 1px solid $lightgrey;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  color: $black;
+  display: flex;
+  height: 48px;
+
+  .search-result {
+    position: absolute;
+    top: 65px;
+    left: 79px;
+    background-color: white;
+    padding: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    display: none;
+  }
+
+  &:hover .search-result {
+    display: block;
+  }
+
+  img {
+    padding: 10px 15px;
+    width: 28px;
+    height: 28px;
+  }
+
+  input {
+    width: 411px;
+    font-size: 16px;
+    line-height: 22px;
+    border: none;
+  }
+}

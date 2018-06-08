@@ -1,22 +1,24 @@
-$lightgrey: #DBDBDB;
-$red: #FF5A5F;
-$darkred: rgb(223, 60, 71);
-$black: #484848;
-$green: rgb(0, 132, 137);
-$blue: #008489;
-$yellow: #995c1f;
+@import 'colors';
 
 .spot-show-banner {
   img {
     width: 100%;
     height: 368px;
   }
+
+  .edit-spot {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 30px;
+    color: $red;
+  }
 }
 
 .spot-show-box {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 37px;
+  margin: 0 30px;
   padding: 24px;
   height: 900px;
 

@@ -1,10 +1,12 @@
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
 <% if logged_in? %>
   <script>
-  	window.currentUser = <%= render("api/users/user.json.jbuilder",
-    user: current_user).html_safe %>
+  	window.currentUser =
+      <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   </script>
 <% end %>
 
 <main id='root'>
-  <h1>React here</h1>
+
 </main>

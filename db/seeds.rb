@@ -22,7 +22,7 @@ ActiveRecord::Base.transaction do
   12.times do
     Spot.create!(
       name: Faker::Hobbit.location,
-      image_url: "https://picsum.photos/300/200/?image=#{pics.sample}",
+      image_url: "https://picsum.photos/1600/1200/?image=#{pics.sample}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
       landscape: %w(Volcano Village Mountain Flatland Cave Castle).sample,

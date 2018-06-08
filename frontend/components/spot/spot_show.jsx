@@ -21,17 +21,12 @@ export default class SpotShow extends React.Component {
     let { id, name, imageUrl, latitude, longitude, landscape,
           location, size , price, description, rating = 5, owner_id } = this.props.spot;
     const makeStar = () => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
-    const sizeImage = () => {
-      let imageId = imageUrl.slice(-3);
-      imageUrl = `https://picsum.photos/1600/1200/?image=${imageId}`;
-      return imageUrl;
-    };
 
     return (
       <div className='spot-show-container'>
         <div className='spot-show-banner'>
-          <img src={sizeImage()} />
-          <h1><Link to={`/spots/${id}/edit`}>Edit</Link></h1>
+          <img src={imageUrl} />
+          <div className='edit-spot'><Link to={`/spots/${id}/edit`}>Edit</Link></div>
         </div>
         <div className='spot-show-box'>
           <div className='spot-show-info'>
