@@ -9,41 +9,38 @@
   }
 
   .spot-index {
-    display: flex;
-    flex-flow: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin: 10px 80px 50px;
-    list-style: none;
 
     .spot-index-item {
-      li {
-        margin: 8px 8px 12px;
-        width: 310px;
+      list-style: none;
+      margin: 8px 8px 12px;
 
-        img {
-          width: 100%;
-          border-radius: 4px;
+      img {
+        width: 100%;
+        border-radius: 4px;
+      }
+
+      .quick-info {
+        padding-top: 5px;
+        line-height: 1.5;
+        font-size: 14px;
+
+        .location {
+          color: $yellow;
+          font-size: 12px;
+          font-weight: bold;
         }
 
-        .quick-info {
-          padding-top: 5px;
-          line-height: 1.5;
-          font-size: 14px;
+        h4 {
+          letter-spacing: 0.5px;
+          font-size: 16px;
+          display: inline-block;
+        }
 
-          .location {
-            color: $yellow;
-            font-size: 12px;
-            font-weight: bold;
-          }
-
-          h4 {
-            letter-spacing: 0.5px;
-            font-size: 16px;
-            display: inline-block;
-          }
-
-          .star {
-            color: $blue;
-          }
+        .star {
+          color: $blue;
         }
       }
     }

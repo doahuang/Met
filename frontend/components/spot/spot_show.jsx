@@ -14,14 +14,9 @@ export default class SpotShow extends React.Component {
   }
 
   render() {
-    if (!this.props.spot) {
-      //redirect to home
-    }
-
     let { id, name, imageUrl, latitude, longitude, landscape,
           location, size , price, description, rating = 5, owner_id } = this.props.spot;
     const makeStar = () => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
-
     return (
       <div className='spot-show-container'>
         <div className='spot-show-banner'>

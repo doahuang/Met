@@ -7,7 +7,8 @@ import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SpotIndexContainer from './spot/spot_index_container';
 import SpotShowContainer from './spot/spot_show_container';
-import SpotFormContainer from './spot/spot_form_container';
+import CreateSpotFormContainer from './spot/create_spot_form_container';
+import EditSpotFormContainer from './spot/edit_spot_form_container';
 import NotFound from './not_found';
 
 const App = () => (
@@ -18,8 +19,8 @@ const App = () => (
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <Route path='/bookings' render={()=><h1>Booking index page</h1>} />
-      <Route path='/spots/new' component={SpotFormContainer} />
-      <Route path='/spots/:spotId/edit' component={SpotFormContainer} />
+      <Route path='/spots/new' component={CreateSpotFormContainer} />
+      <Route path='/spots/:spotId/edit' component={EditSpotFormContainer} />
       <Route path='/spots/:spotId' component={SpotShowContainer} />
       <Redirect from='/spots' to='/' />
       <Route to='/404' render={NotFound} />

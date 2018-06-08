@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { clear } from '../../actions/session';
 
@@ -21,7 +21,7 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submit(this.state).then(() => <Redirect to='/' />);
+    this.props.submit(this.state).then(() => this.props.history.push('/'));
   }
 
   renderErrors() {

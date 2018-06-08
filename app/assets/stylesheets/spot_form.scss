@@ -1,0 +1,66 @@
+@import 'colors';
+
+.spot-form-container {
+  color: $black;
+
+  .spot-form {
+    margin: 55px 480px 0 105px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    form {
+      font-size: 18px;
+      padding: 30px 30px 0 0;
+
+      input, textarea {
+        margin: 10px 0;
+        display: block;
+        height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border: 1px solid $lightgrey;
+        border-radius: 2px;
+
+        &:focus {
+          border: 1px solid $green;
+        }
+      }
+
+      textarea {
+        height: 100px;
+        resize: none;
+      }
+
+      div {
+        display: flex;
+
+        label:last-child {
+          margin-left: 30px;
+        }
+      }
+
+      .button-box {
+        border-top: 1px solid $lightgrey;
+        padding: 30px 0;
+        margin-top: 30px;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          padding: 16px 20px;
+          background-color: $green;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:active {
+            background-color: $darkgreen;
+          }
+        }
+      }
+    }
+  }
+}

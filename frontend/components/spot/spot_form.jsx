@@ -1,12 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class SpotForm extends React.Component {
+class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.spot;
-    this.submit = this.state.name ? this.props.updateSpot : this.props.createSpot;
-
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.spot);
   }
 
   update(field) {
@@ -15,30 +18,44 @@ export default class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.submit(this.state).then(this.props.history.push('/'));
+    this.props.submit(this.state).then(() => this.props.history.push('/'));
   }
 
   render() {
     let { name, imageUrl, landscape, size, price, description } = this.state;
-
     return (
       <div className='spot-form-container'>
-        <form onSubmit={this.handleSubmit}>
-          <div><label>Name
-            <input onChange={this.update('name')} value={name} /></label></div>
-          <div><label>Image
-            <input onChange={this.update('imageUrl')} value={imageUrl} /></label></div>
-          <div><label>Landscape
-            <input onChange={this.update('landscape')} value={landscape} /></label></div>
-          <div><label>Size
-            <input type='number' onChange={this.update('size')} value={size} /></label></div>
-          <div><label>Price
-            <input type='number' onChange={this.update('price')} value={price} /></label></div>
-          <div><label>Description
-            <textarea onChange={this.update('description')} value={description} /></label></div>
-          <button>Submit</button>
-        </form>
+        <div className='spot-form'>
+          <h2>{this.props.formType}</h2>
+          <form>
+            <label>Name
+              <input onChange={this.update('name')} value={name} />
+            </label>
+            <label>Image
+              <input onChange={this.update('imageUrl')} value={imageUrl} />
+            </label>
+            <label>Landscape
+              <input onChange={this.update('landscape')} value={landscape} />
+            </label>
+            <div>
+              <label>Size
+                <input onChange={this.update('size')} value={size} />
+              </label>
+              <label>Price
+                <input type='number' onChange={this.update('price')} value={price} />
+              </label>
+            </div>
+            <label>Description
+              <textarea onChange={this.update('description')} value={description} />
+            </label>
+            <div className='button-box'>
+              <button onClick={this.handleSubmit}>Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 }
+
+export default withRouter(SpotForm);
