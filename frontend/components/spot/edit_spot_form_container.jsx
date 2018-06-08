@@ -8,7 +8,7 @@ const _newSpot =
 
 const msp = ({ entities }, ownProps) => ({
   spot: entities.spots[ownProps.match.params.spotId] || _newSpot,
-  formType: 'Let\'s get started updating your spot.'
+  formType: 'Update your spot?'
 });
 
 const mdp = dispatch => ({

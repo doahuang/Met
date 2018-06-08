@@ -39,7 +39,7 @@ class SpotForm extends React.Component {
             </label>
             <div>
               <label>Size
-                <input onChange={this.update('size')} value={size} />
+                <input type='number' onChange={this.update('size')} value={size} />
               </label>
               <label>Price
                 <input type='number' onChange={this.update('price')} value={price} />

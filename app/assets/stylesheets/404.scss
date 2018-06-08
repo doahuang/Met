@@ -1,14 +1,16 @@
+@import 'colors';
+
 .not-found {
-  height: 750px;
+  height: 700px;
   background-image: url('http://www.pngmart.com/files/3/Gandalf-Transparent-PNG.png');
   background-repeat: no-repeat;
+  color: $black;
 
   div {
-    font-size: 60px;
-    padding: 150px 0 0 530px;
+    font-size: 50px;
+    padding: 200px 0 0 530px;
 
     h2 {
-      margin-left: 10px;
       font-size: 30px;
     }
   }

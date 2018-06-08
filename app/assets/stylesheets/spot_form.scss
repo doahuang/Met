@@ -2,9 +2,13 @@
 
 .spot-form-container {
   color: $black;
+  background-image: url('http://www.pngmart.com/files/3/Legolas-PNG-File.png');
+  background-repeat: no-repeat;
+  background-size: 622px 720px;
+  background-position: right;
 
   .spot-form {
-    margin: 55px 480px 0 105px;
+    padding: 50px 480px 0 100px;
 
     h2 {
       font-size: 32px;
@@ -14,7 +18,12 @@
       font-size: 18px;
       padding: 30px 30px 0 0;
 
+      label {
+        color: grey;
+      }
+
       input, textarea {
+        color: $black;
         margin: 10px 0;
         display: block;
         height: 50px;
@@ -36,6 +45,7 @@
 
       div {
         display: flex;
+        justify-content: space-between;
 
         label:last-child {
           margin-left: 30px;
@@ -43,9 +53,7 @@
       }
 
       .button-box {
-        border-top: 1px solid $lightgrey;
-        padding: 30px 0;
-        margin-top: 30px;
+        margin: 30px 0;
         display: flex;
         justify-content: flex-end;
 
