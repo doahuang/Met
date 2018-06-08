@@ -6,8 +6,8 @@ const SpotIndexItem = ({ spot }) => {
   const makeStar = () => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
 
   return (
-    <div>
-      <li className='spot-index-item'>
+    <div className='spot-index-item'>
+      <li>
         <Link to={`/spots/${id}`}><img src={imageUrl} /></Link>
         <div className='quick-info'>
           <p className='loc'>{landscape.toUpperCase()} · {location.toUpperCase()}</p>

@@ -25,8 +25,8 @@ const App = () => (
         <AuthRoute path='/login' component={LoginFormContainer} />
         <Route path='/bookings' render={()=><h1>Booking index page</h1>} />
         <Route path='/spots/new' component={SpotFormContainer} />
-        <Route path='/spots/:spotId' component={SpotShowContainer} />
         <Route exact path='/spots/:spotId/edit' component={SpotFormContainer} />
+        <Route path='/spots/:spotId' component={SpotShowContainer} />
         <Route path='/spots' component={SpotIndexContainer} />
         <Route path='/' component={SpotIndexContainer} />
       </Switch>

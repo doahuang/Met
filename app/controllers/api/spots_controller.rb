@@ -4,6 +4,8 @@ class Api::SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     @spot.owner_id = current_user.id
+    @spot.latitude = rand(0.00..100.00).round(2)
+    @spot.longitude = rand(0.00..100.00).round(2)
     if @spot.save
       render :show
     else
