@@ -18,9 +18,9 @@ const App = () => (
       <Route exact path='/' component={SpotIndexContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
-      <Route path='/bookings' render={()=><h1>Booking index page</h1>} />
-      <Route path='/spots/new' component={CreateSpotFormContainer} />
-      <Route path='/spots/:spotId/edit' component={EditSpotFormContainer} />
+      <ProtectedRoute path='/bookings' render={()=><h1>Booking index page</h1>} />
+      <ProtectedRoute path='/spots/new' component={CreateSpotFormContainer} />
+      <ProtectedRoute path='/spots/:spotId/edit' component={EditSpotFormContainer} />
       <Route path='/spots/:spotId' component={SpotShowContainer} />
       <Redirect from='/spots' to='/' />
       <Route to='/404' render={NotFound} />

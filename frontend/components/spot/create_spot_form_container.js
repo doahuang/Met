@@ -7,7 +7,7 @@ const _newSpot =
 
 const msp = ({ entities }, ownProps) => ({
   spot: _newSpot,
-  formType: 'Let\'s get your spot listed.'
+  formType: 'Let\'s get started listing your spot.'
 });
 
 const mdp = dispatch => ({

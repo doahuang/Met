@@ -11,15 +11,17 @@ const SpotIndexItem = ({ spot }) => {
   price = `$${price} per day · Free cancellation`;
 
   return (
-    <li className='spot-index-item'>
-      <Link to={id}><img src={imageUrl} /></Link>
-      <div className='quick-info'>
+    <div className='spot-index-item'>
+      <li>
+        <Link to={id}><img src={imageUrl} /></Link>
+        <div className='quick-info'>
         <p className='location'>{location}</p>
         <Link to={id}><h4>{name}</h4></Link>
         <p>{price}</p>
         <span className='star'>{star}</span> {rating}
-      </div>
-    </li>
+        </div>
+      </li>
+    </div>
   );
 };
 

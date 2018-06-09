@@ -25,7 +25,7 @@ class SpotForm extends React.Component {
     let { name, imageUrl, landscape, size, price, description } = this.state;
     return (
       <div className='spot-form-container'>
-        <div className='spot-form'>
+        <div className='spot-form-box'>
           <h2>{this.props.formType}</h2>
           <form>
             <label>Name

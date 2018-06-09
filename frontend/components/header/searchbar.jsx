@@ -2,8 +2,7 @@
 
 const Searchbar = () => (
   <div className='search-bar'>
-    <img src='https://raw.githubusercontent.com/doahuang/Met/master/app/assets/images/magnifier.png'/>
-    <input placeholder='Try "Shire"' />
+    <i class="fas fa-search"></i><input placeholder='Try "Shire"' />
     <div className='search-result'>Search Result</div>
   </div>
 );

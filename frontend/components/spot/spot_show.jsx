@@ -16,12 +16,17 @@ export default class SpotShow extends React.Component {
   render() {
     let { id, name, imageUrl, latitude, longitude, landscape,
           location, size , price, description, rating = 5, owner_id } = this.props.spot;
+    id = `/spots/${id}/edit`;
     const makeStar = () => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
     return (
       <div className='spot-show-container'>
         <div className='spot-show-banner'>
           <img src={imageUrl} />
-          <div className='edit-spot'><Link to={`/spots/${id}/edit`}>Edit</Link></div>
+          <div className='edit-save'>
+            <Link to={id}><button className='edit'><i class="far fa-edit"></i>&nbsp;&nbsp;&nbsp;Edit</button></Link>
+            <button className='save'><i class="far fa-heart"></i>&nbsp;&nbsp;&nbsp;Save</button>
+          </div>
+          <button className='view'>View Photos</button>
         </div>
         <div className='spot-show-box'>
           <div className='spot-show-info'>
