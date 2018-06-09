@@ -17,12 +17,10 @@ ActiveRecord::Base.transaction do
     User.create!(username: Faker::LordOfTheRings.character, password: '123123')
   end
 
-  pics = [913, 909, 990, 944, 949, 933, 969, 960, 929, 924, 997]
-
-  12.times do
+  30.times do
     Spot.create!(
       name: Faker::Hobbit.location,
-      image_url: "https://picsum.photos/1600/1200/?image=#{pics.sample}",
+      image_url: "https://picsum.photos/1600/900/?image=#{rand(960..1000)}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
       landscape: %w(Volcano Village Mountain Flatland Cave Castle).sample,
@@ -33,7 +31,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  6.times do
+  15.times do
     begin_date = Date.new(2018, rand(1..12), rand(1..28))
     Booking.create!(
       begin_date: begin_date,
@@ -44,7 +42,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  9.times do
+  15.times do
     Review.create!(
       rating: rand(1..5),
       body: %w(ok good better best wow).sample,

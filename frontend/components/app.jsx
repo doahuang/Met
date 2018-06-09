@@ -18,7 +18,7 @@ const App = () => (
       <Route exact path='/' component={SpotIndexContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
-      <ProtectedRoute path='/bookings' render={()=><h1>Booking index page</h1>} />
+      <ProtectedRoute path='/bookings' component={()=><h1>Booking index page</h1>} />
       <ProtectedRoute path='/spots/new' component={CreateSpotFormContainer} />
       <ProtectedRoute path='/spots/:spotId/edit' component={EditSpotFormContainer} />
       <Route path='/spots/:spotId' component={SpotShowContainer} />

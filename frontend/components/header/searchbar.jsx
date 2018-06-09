@@ -2,7 +2,7 @@
 
 const Searchbar = () => (
   <div className='search-bar'>
-    <i class="fas fa-search"></i><input placeholder='Try "Shire"' />
+    <i className="fas fa-search"></i><input placeholder='Try "Shire"' />
     <div className='search-result'>Search Result</div>
   </div>
 );
