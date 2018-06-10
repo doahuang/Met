@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
+
 import { fetchSpot } from '../../actions/spot';
 import SpotShow from './spot_show';
 
-const _nullSpot =
-  { name: '', imageUrl: '', landscape: '', size: '', price: '', description: '' };
-
-const msp = ({ entities }, ownProps) => ({
-  spot: entities.spots[ownProps.match.params.spotId] || _nullSpot
+const msp = ({ entities, session }, ownProps) => ({
+  spot: entities.spots[ownProps.match.params.spotId],
+  currentUser: entities.users[session.id]
 });
 
 const mdp = dispatch => ({

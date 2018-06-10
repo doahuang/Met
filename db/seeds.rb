@@ -14,19 +14,23 @@ Review.destroy_all
 ActiveRecord::Base.transaction do
   User.create!(username: 'test', password: '123123')
   3.times do
-    User.create!(username: Faker::LordOfTheRings.character, password: '123123')
+    user = [Faker::LordOfTheRings.character, Faker::Hobbit.character].sample
+    User.create!(username: user, password: '123123')
   end
 
-  30.times do
+  12.times do
+    loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
+    geo = %w(Volcano Valley Village Tower Mountain Flatland Cave Castle Forest).sample
+    des = rand(1..10).times.map{ Faker::Hobbit.quote }.join
     Spot.create!(
-      name: Faker::LordOfTheRings.location,
-      image_url: "https://picsum.photos/1600/900/?image=#{rand(960..1000)}",
+      name: loc,
+      image_url: "https://picsum.photos/1600/900/?image=#{rand(980..995)}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
-      landscape: %w(Volcano Village Mountain Flatland Cave Castle).sample,
+      landscape: geo,
       size: rand(1..100),
       price: rand(1..10000),
-      description: 'some random descriptions',
+      description: des,
       owner_id: rand(User.first.id..User.last.id)
     )
   end
@@ -43,8 +47,8 @@ ActiveRecord::Base.transaction do
   end
 
 
-  15.times do
-    body = rand(5..15).times.map { Faker::Hobbit.quote }.join("\n")
+  10.times do
+    body = rand(5..15).times.map { Faker::Hobbit.quote }.join
     Review.create!(
       rating: rand(1..5),
       body: body,

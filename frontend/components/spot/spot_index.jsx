@@ -8,14 +8,20 @@ export default class SpotIndex extends React.Component {
   }
 
   render() {
-    let spots = this.props.spots.map(spot => (
+    let spots = this.props.spots;
+
+    if (!spots) {
+      return null;
+    }
+
+    spots = spots.map(spot => (
       <SpotIndexItem key={spot.id} spot={spot} />
     ));
 
     return (
       <div className='spot-index-container'>
         <h2>Explore Middle-earth</h2>
-        <ul className='spot-index'>{spots}</ul>
+        <ul className='spot-index'>{ spots }</ul>
       </div>
     );
   }

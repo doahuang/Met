@@ -10,13 +10,13 @@
 
   .spot-index {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     margin: 10px 72px 50px;
 
     .spot-index-item {
       list-style: none;
       margin: 8px 8px 12px;
       overflow: hidden;
+      font-size: 14px;
 
       li {
         white-space: nowrap;
@@ -24,6 +24,7 @@
       }
 
       img {
+        display: block;
         min-height: 110px;
         max-height: 210px;
         width: 100%;
@@ -33,7 +34,6 @@
       .quick-info {
         padding-top: 5px;
         line-height: 1.5;
-        font-size: 14px;
 
         .location {
           color: $yellow;
@@ -42,7 +42,6 @@
         }
 
         h4 {
-          letter-spacing: 0.5px;
           font-size: 16px;
           display: inline-block;
         }
@@ -56,43 +55,26 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .spot-index-container {
-    .spot-index {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .spot-index-container .spot-index {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (max-width: 1400px) {
-  .spot-index-container {
-    .spot-index {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .spot-index-container .spot-index {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width: 1135px) {
+@media screen and (max-width: 850px) {
   .spot-index-container {
     h2 {
       margin: 35px 30px 0;
     }
 
     .spot-index {
+      grid-template-columns: repeat(2, 1fr);
       margin: 10px 24px 50px;
     }
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .spot-index-container {
-    .spot-index {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-@media screen and (max-width: 830px) {
-  nav {
-    display: none;
   }
 }

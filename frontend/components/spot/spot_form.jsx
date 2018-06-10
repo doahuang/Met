@@ -1,15 +1,12 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.spot;
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps.spot);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -18,11 +15,18 @@ class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submit(this.state).then(() => this.props.history.push('/'));
+    let id = this.state.id;
+    let url = id ? `/spots/${id}` : '/';
+    this.props.submit(this.state).then(() => this.props.history.push(url));
   }
 
   render() {
+    if (!this.state) {
+      return <Redirect to='/404' />;
+    }
+
     let { name, imageUrl, landscape, size, price, description } = this.state;
+
     return (
       <div className='spot-form-container'>
         <div className='spot-form-box'>
@@ -46,7 +50,7 @@ class SpotForm extends React.Component {
               </label>
             </div>
             <label>Description
-              <textarea onChange={this.update('description')} value={description} />
+              <textarea onChange={this.update('description')} defaultValue={description} />
             </label>
             <div className='button-box'>
               <button onClick={this.handleSubmit}>Submit</button>

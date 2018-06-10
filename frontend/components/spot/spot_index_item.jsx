@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const makeStar = rating => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
+const drawStar = rating => '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
 
 const SpotIndexItem = ({ spot }) => {
-  let { id, name, imageUrl, location, landscape, price, rating = 5 } = spot;
-  let star = makeStar(rating);
-  id = `/spots/${id}`;
-  location = `${landscape} · ${location}`.toUpperCase();
-  price = `$${price} per day · Free cancellation`;
+  let url = `/spots/${spot.id}`;
+  let location = `${spot.landscape} · ${spot.location}`.toUpperCase();
+  let price = `$${spot.price} per day · Free cancellation`;
+  let rating = 5;
+  let star = drawStar(rating);
 
   return (
     <div className='spot-index-item'>
       <li>
-        <Link to={id}><img src={imageUrl} /></Link>
+        <Link to={url}><img src={spot.imageUrl} /></Link>
         <div className='quick-info'>
-        <p className='location'>{location}</p>
-        <Link to={id}><h4>{name}</h4></Link>
-        <p>{price}</p>
-        <span className='star'>{star}</span> {rating}
+          <p className='location'>{location}</p>
+          <Link to={url}><h4>{spot.name}</h4></Link>
+          <p>{price}</p>
+          <span className='star'>{star}</span> 123
         </div>
       </li>
     </div>

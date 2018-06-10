@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
+
 import { createSpot } from '../../actions/spot';
 import SpotForm from './spot_form';
 
-const _newSpot =
-  { name: '', imageUrl: '', landscape: '', size: '', price: '', description: '' };
+const _newSpot = {
+  name: '', imageUrl: '', landscape: '', size: '', price: '', description: ''
+}
 
-const msp = ({ entities }, ownProps) => ({
+const msp = state => ({
   spot: _newSpot,
   formType: 'Let\'s get started listing your spot.'
 });
