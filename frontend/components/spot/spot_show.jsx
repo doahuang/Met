@@ -22,38 +22,44 @@ export default class SpotShow extends React.Component {
       <div className='spot-show-container'>
         <div className='spot-show-banner'>
           <img src={imageUrl} />
-          <div className='edit-save'>
-            <Link to={id}><button className='edit'><i class="far fa-edit"></i>&nbsp;&nbsp;&nbsp;Edit</button></Link>
-            <button className='save'><i class="far fa-heart"></i>&nbsp;&nbsp;&nbsp;Save</button>
+          <div className='box box-1'>
+            <Link to={id} className='edit'><button><i className="far fa-edit"></i>
+              <p className='hide-text'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit</p></button></Link>
+            <button><i className="far fa-heart"></i>
+              <p className='hide-text'>&nbsp;&nbsp;&nbsp;Save</p></button>
           </div>
-          <button className='view'>View Photos</button>
+          <div className='box box-2'>
+            <button>View Photos</button>
+          </div>
         </div>
         <div className='spot-show-box'>
           <div className='spot-show-info'>
             <div>
-              <p>{landscape}</p>
+              <p className='landscape'>{landscape.toUpperCase()}</p>
               <h3>{name}</h3>
-              <p>{location}</p>
-              <br />
-              <p>{size} guests</p>
-              <p>{description}</p>
+              <p className='location'>{location}</p>
+              <p><i className="fas fa-users"></i>&nbsp;&nbsp;{size} guests</p>
+              <div className='description'><p>{description}</p></div>
             </div>
-            <br />
-            <div className='spot-show-review'>
-              <h3>Review index page</h3>
-              <ul>
-                <li>review</li>
-                <li>review</li>
-                <li>review</li>
-                <li>review</li>
-              </ul>
+            <br></br>
+            <div className='review-container'>
+              <div className='review-search-bar'>
+                <h4>197 Reviews<span>&nbsp;&nbsp;{makeStar(rating)}</span></h4>
+                <div className='search-bar'>
+                  <i className="fas fa-search"></i><input placeholder='Search reviews' />
+                </div>
+              </div>
+
+              <div>Review component here</div>
             </div>
           </div>
           <div className='spot-show-booking'>
-            <div>
-              <p><span>${price}</span> per day</p>
-              <p><span>{makeStar(rating)}</span> <span>{rating}</span></p>
+            <div className='info'>
+              <p><span className='price'>${price}</span> per day</p>
+              <p><span className='rating'>{makeStar(rating)}</span> <span>197</span></p>
             </div>
+
+            <div>Booking component here</div>
           </div>
         </div>
       </div>

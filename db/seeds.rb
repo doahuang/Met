@@ -19,7 +19,7 @@ ActiveRecord::Base.transaction do
 
   30.times do
     Spot.create!(
-      name: Faker::Hobbit.location,
+      name: Faker::LordOfTheRings.location,
       image_url: "https://picsum.photos/1600/900/?image=#{rand(960..1000)}",
       latitude: rand(0.0..100.0).round(2),
       longitude: rand(0.0..100.0).round(2),
@@ -42,10 +42,12 @@ ActiveRecord::Base.transaction do
     )
   end
 
+
   15.times do
+    body = rand(5..15).times.map { Faker::Hobbit.quote }.join("\n")
     Review.create!(
       rating: rand(1..5),
-      body: %w(ok good better best wow).sample,
+      body: body,
       reviewer_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)
     )

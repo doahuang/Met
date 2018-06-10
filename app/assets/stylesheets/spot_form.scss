@@ -9,8 +9,8 @@
   background-size: contain;
 
   .spot-form-box {
-    padding: 40px 0;
-    padding-left: 80px;
+    padding: 40px 0 0;
+    padding-left: 200px;
 
     h2 {
       display: inline-block;
@@ -88,13 +88,17 @@
     display: grid;
     justify-content: center;
 
-    .spot-form-box form {
-      input, textarea {
-        width: 85%;
-      }
+    .spot-form-box {
+      padding-left: 80px;
 
-      div {
-        width: 85%;
+      form {
+        input, textarea {
+          width: 85%;
+        }
+
+        div {
+          width: 85%;
+        }
       }
     }
   }
