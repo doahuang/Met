@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
-import { fetchReviews, deleteReview } from '../../actions/review';
+import { deleteReview } from '../../actions/review';
 import ReviewIndex from './review_index';
 
-const msp = ({ entities }, ownProps) => ({
-  reviews: Object.values(entities.reviews)
+const msp = (state, ownProps) => ({
+  reviews: ownProps.reviews
 });
 
 const mdp = dispatch => ({
-  fetchReviews: () => dispatch(fetchReviews()),
+  // fetchReviews: () => dispatch(fetchReviews()),
   deleteReview: id => dispatch(deleteReview(id))
 });
 

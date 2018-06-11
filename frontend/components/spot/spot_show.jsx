@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SpotBanner from './spot_banner';
 import ReviewIndexContainer from '../review/review_index_container';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
+
+    if (this.props.reviews.length === 0) {
+      this.props.fetchReviews();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,9 +27,8 @@ export default class SpotShow extends React.Component {
 
     if (currentUser && currentUser.id == spot.ownerId) {
       return (
-        <span>
-          (<Link to={`/spots/${spot.id}/edit`} className='edit'>Edit listing</Link>)
-        </span>
+        <span>(<Link to={`/spots/${spot.id}/edit`}
+            className='edit'>Edit listing</Link>)</span>
       );
     }
   }
@@ -36,24 +40,11 @@ export default class SpotShow extends React.Component {
       return null;
     }
 
+    let reviews= this.props.reviews;
+
     return (
       <div className='spot-show-container'>
-        <div className='spot-show-banner'>
-          <img src={spot.imageUrl} />
-          <div className='box box-1'>
-            <button>
-              <i className="far fa-share-square"></i>
-              <span className='hide'> Share</span>
-            </button>
-            <button>
-              <i className="far fa-heart"></i>
-              <span className='hide'> Save</span>
-            </button>
-          </div>
-          <div className='box box-2'>
-            <button>View Photos</button>
-          </div>
-        </div>
+        <SpotBanner imageUrl={spot.imageUrl} />
 
         <div className='spot-show-body'>
           <div className='spot-show-info'>
@@ -65,7 +56,8 @@ export default class SpotShow extends React.Component {
               <div className='description'><p>{spot.description}</p></div>
             </div>
 
-            <ReviewIndexContainer spot={spot} currentUser={this.props.currentUser} />
+            <ReviewIndexContainer spot={spot} reviews={reviews}
+              currentUser={this.props.currentUser} />
           </div>
 
           <div className='spot-show-booking'>

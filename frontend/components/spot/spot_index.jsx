@@ -5,7 +5,10 @@ import SpotIndexItem from './spot_index_item';
 export default class SpotIndex extends React.Component {
   componentDidMount() {
     this.props.fetchSpots();
-    this.props.fetchReviews();
+
+    if (this.props.reviews.length === 0) {
+      this.props.fetchReviews();
+    }
   }
 
   render() {
@@ -16,7 +19,7 @@ export default class SpotIndex extends React.Component {
     }
 
     let reviews = this.props.reviews;
-    
+
     spots = spots.map(spot => {
       let spotReviews = reviews.filter(review => review.spotId === spot.id);
 

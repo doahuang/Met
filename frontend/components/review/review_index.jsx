@@ -4,20 +4,12 @@ import ReviewIndexItem from './review_index_item';
 const drawStar = rating => '⭑⭑⭑⭑⭑'.slice(0, rating);
 
 export default class ReviewIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchReviews(); //to change
-  }
 
   render() {
     let reviews = this.props.reviews.filter(
       review => review.spotId === this.props.spot.id);
 
     let avgRating = 0;
-
-    if (!reviews) {
-      return null;
-    }
-
     let reviewNum = reviews.length;
     let reviewSum = reviewNum ? `${reviewNum} Reviews` : 'No Reviews yet';
 
@@ -30,7 +22,7 @@ export default class ReviewIndex extends React.Component {
         deleteReview={this.props.deleteReview} />;
     });
 
-    avgRating = Math.ceil(avgRating/reviewNum);
+    avgRating = Math.ceil(avgRating / reviewNum);
 
     return (
       <div className='review-container'>
