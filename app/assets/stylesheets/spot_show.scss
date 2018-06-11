@@ -94,41 +94,6 @@
       }
     }
 
-    .review-container {
-      .review-search-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 25px 0;
-        border-bottom: 1px solid $lightgrey;
-
-        h4 {
-          font-size: 24px;
-
-          span {
-            font-size: 28px;
-            color: $blue;
-          }
-        }
-
-        .search-bar {
-          width: 185px;
-          height: 32px;
-          border: 1px solid $lightgrey;
-          border-radius: 2px;
-          box-shadow: none;
-
-          i {
-            padding: 7px;
-          }
-
-          input {
-            width: 100%;
-          }
-        }
-      }
-    }
-
     .spot-show-booking {
       height: 365px;
       width: 326px;

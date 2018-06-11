@@ -21,7 +21,7 @@ ActiveRecord::Base.transaction do
   12.times do
     loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
     geo = %w(Volcano Valley Village Tower Mountain Flatland Cave Castle Forest).sample
-    des = rand(1..10).times.map{ Faker::Hobbit.quote }.join(' ')
+    des = rand(1..5).times.map{ Faker::Hobbit.quote }.join(' ')
     Spot.create!(
       name: loc,
       image_url: "https://picsum.photos/1600/900/?image=#{rand(980..995)}",
@@ -47,11 +47,10 @@ ActiveRecord::Base.transaction do
   end
 
 
-  10.times do
-    body = rand(5..15).times.map { Faker::Hobbit.quote }.join(' ')
+  20.times do
     Review.create!(
       rating: rand(1..5),
-      body: body,
+      body: Faker::Hobbit.quote,
       reviewer_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)
     )

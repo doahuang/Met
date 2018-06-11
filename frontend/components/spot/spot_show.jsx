@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import ReviewIndexContainer from '../review/review_index_container';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
@@ -27,13 +29,8 @@ export default class SpotShow extends React.Component {
     }
   }
 
-  drawStar(rating) {
-    return '⭑⭑⭑⭑⭑'.slice(0, Math.floor(rating));
-  }
-
   render() {
     let spot = this.props.spot
-    let rating = 5;
 
     if (!spot) {
       return null;
@@ -68,23 +65,13 @@ export default class SpotShow extends React.Component {
               <div className='description'><p>{spot.description}</p></div>
             </div>
 
-            <div className='review-container'>
-              <div className='review-search-bar'>
-                <h4>123 Reviews<span> {this.drawStar(rating)}</span></h4>
-                <div className='search-bar'>
-                  <i className="fas fa-search"></i><input placeholder='Search reviews' />
-                </div>
-              </div>
-
-              <div>Review component here</div>
-
-            </div>
+            <ReviewIndexContainer spot={spot} currentUser={this.props.currentUser} />
           </div>
 
           <div className='spot-show-booking'>
             <div className='info'>
               <p><span className='price'>${spot.price}</span> per day</p>
-              <p><span className='rating'>{this.drawStar(rating)}</span> <span>123</span></p>
+              <p><span className='rating'>⭑⭑⭑⭑⭑</span> <span>123</span></p>
             </div>
 
             <div>Booking component here</div>
