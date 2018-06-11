@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.fetchBookings = fetchBookings;
   // window.createBooking = createBooking;
   // window.deleteBooking = deleteBooking;
-  window.dispatch = store.dispatch;
+  // window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });
