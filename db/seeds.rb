@@ -47,7 +47,7 @@ ActiveRecord::Base.transaction do
   end
 
 
-  30.times do
+  40.times do
     Review.create!(
       rating: rand(1..5),
       body: Faker::Hobbit.quote,
