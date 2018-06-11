@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SpotBanner from './spot_banner';
 import ReviewIndexContainer from '../review/review_index_container';
+import StarRating from '../star_rating';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
@@ -40,6 +41,8 @@ export default class SpotShow extends React.Component {
       return null;
     }
 
+    reviews = reviews.filter(review => review.spotId === spot.id);
+
     return (
       <div className='spot-show-container'>
 
@@ -62,7 +65,7 @@ export default class SpotShow extends React.Component {
           <div className='spot-show-booking'>
             <div className='info'>
               <p><span className='price'>${spot.price}</span> per day</p>
-              <p><span className='rating'>⭑⭑⭑⭑⭑</span> <span>123</span></p>
+              <p><StarRating reviews={reviews} /> { reviews.length }</p>
             </div>
 
             <div>Booking component here</div>

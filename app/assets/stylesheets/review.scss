@@ -13,11 +13,6 @@
 
       span {
         font-size: 28px;
-        color: $blue;
-
-        .lightgrey {
-          color: $lightgrey;
-        }
       }
     }
 
@@ -37,6 +32,55 @@
       }
     }
   }
+
+  .create-review-box {
+    padding: 20px;
+    border-bottom: 1px solid $lightgrey;
+
+    .create-review-form {
+      div {
+        padding: 10px;
+      }
+
+      label {
+        margin-right: 5px;
+        color: $blue;
+        font-size: 18px;
+      }
+
+      span {
+        margin: 5px;
+      }
+
+      .review-body-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        textarea {
+          resize: none;
+          border: 1px solid $lightgrey;
+          width: 72%;
+          height: 80px;
+          padding: 10px;
+        }
+
+        button {
+          height: 40px;
+          padding: 0 20px;
+          margin: 0 15px;
+          color: white;
+          background-color: $green;
+          border-radius: 4px;
+
+          &:active {
+            background-color: $darkgreen;
+          }
+        }
+      }
+    }
+  }
+
   .review-index-container {
     margin-top: 10px;
 
