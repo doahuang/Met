@@ -1,12 +1,19 @@
 import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 
+import RenderErrors from '../errors';
+import { clear } from '../../actions/session';
+
 class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.spot;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    clear();
   }
 
   update(field) {
@@ -63,6 +70,8 @@ class SpotForm extends React.Component {
             <Link to='/'><button>Back</button></Link>
             <button onClick={this.handleSubmit}>Looks good</button>
           </div>
+
+          <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
         </div>
       </div>
     );

@@ -7,9 +7,10 @@ const _newSpot = {
   name: '', imageUrl: '', landscape: '', size: '', price: '', description: ''
 }
 
-const msp = state => ({
+const msp = ({ errors }) => ({
   spot: _newSpot,
-  formType: 'Let\'s get started listing your spot.'
+  formType: 'Let\'s get started listing your spot.',
+  errors: errors.session
 });
 
 const mdp = dispatch => ({

@@ -1,4 +1,5 @@
 import * as APIUtil from '../utils/spot';
+import { receiveSessionErrors } from './session'; //to change
 
 export const RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 export const RECEIVE_SPOT = 'RECEIVE_SPOT';
@@ -15,9 +16,11 @@ export const fetchSpot = id => dispatch => {
 }
 
 export const createSpot = spot => dispatch => {
-  return APIUtil.createSpot(spot).then(spot => dispatch(receiveSpot(spot)));
+  return APIUtil.createSpot(spot).then(spot => dispatch(receiveSpot(spot)),
+    err => dispatch(receiveSessionErrors(err.responseJSON)));
 }
 
 export const updateSpot = spot => dispatch => {
-  return APIUtil.updateSpot(spot).then(spots => dispatch(receiveSpot(spot)));
+  return APIUtil.updateSpot(spot).then(spots => dispatch(receiveSpot(spot)),
+    err => dispatch(receiveSessionErrors(err.responseJSON)));
 }

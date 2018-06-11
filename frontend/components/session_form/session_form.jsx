@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { clear } from '../../actions/session';
+import RenderErrors from '../errors';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -24,16 +25,9 @@ export default class SessionForm extends React.Component {
     this.props.submit(this.state).then(() => this.props.history.push('/'));
   }
 
-  renderErrors() {
-    const errors = this.props.errors.map((err, i) => (
-      <li key={i}>{err}</li>
-    ));
-    return <ul>{errors}</ul>;
-  }
-
   render() {
     let { username, password } = this.state;
-    let { formType, quickLink } = this.props;
+    let { formType, quickLink, errors } = this.props;
 
     return (
       <div className='session-form-container'>
@@ -45,7 +39,9 @@ export default class SessionForm extends React.Component {
               value={username} onChange={this.update('username')} />
             <input type='password' placeholder='Password'
               value={password} onChange={this.update('password')} />
-            <div className='errors'>{this.renderErrors()}</div>
+
+            <div className='errors'> <RenderErrors errors={errors} /> </div>
+
             <button onClick={this.handleSubmit}>{formType}</button>
           </form>
           <div className='quicklink'>{quickLink}</div>
