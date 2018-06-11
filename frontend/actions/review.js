@@ -1,4 +1,5 @@
 import * as APIUtil from '../utils/review';
+import { receiveSessionErrors } from './session'; //to change
 
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
@@ -13,7 +14,8 @@ export const fetchReviews = () => dispatch => {
 }
 
 export const createReview = review => dispatch => {
-  return APIUtil.createReview(review).then(review => dispatch(receiveReview(review)));
+  return APIUtil.createReview(review).then(review => dispatch(receiveReview(review)),
+    err => dispatch(receiveSessionErrors(err.responseJSON)));
 }
 
 export const deleteReview = id => dispatch => {

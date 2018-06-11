@@ -4,7 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 //test
-// import { fetchReviews, createReview, deleteReview } from './utils/review';
+import { fetchReviews, createReview, deleteReview } from './actions/review';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,7 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //test
-  // window.dispatch = store.dispatch;
+  window.fetchReviews = fetchReviews;
+  window.createReview = createReview;
+  window.deleteReview = deleteReview;
+  window.dispatch = store.dispatch;
+  window.getState = store.getState;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });
