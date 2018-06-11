@@ -6,7 +6,7 @@ const RenderErrors = ({ errors }) => {
     <li key={i}>{err}</li>
   ));
 
-  return <ul>{ errs }</ul>;
+  return <ul className='red err'>{ errs }</ul>;
 };
 
 export default RenderErrors;

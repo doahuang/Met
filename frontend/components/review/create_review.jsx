@@ -1,12 +1,19 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import RenderErrors from '../errors';
+import { clear } from '../../actions/session';
+
 class CreateReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    clear();
   }
 
   update(field) {
@@ -17,7 +24,8 @@ class CreateReview extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
+    this.state.spotId = this.props.spot.id;
     this.props.submit(this.state)
       .then(() => this.props.history.push(`/spots/${this.state.spotId}`));
   }
@@ -26,7 +34,7 @@ class CreateReview extends React.Component {
     return (
       <div className='create-review-box'>
         <form className='create-review-form'>
-          <div>
+          <div className='rating'>
             <span>Rating</span>
             <span>
               <input onChange={this.update('rating')}
@@ -54,6 +62,9 @@ class CreateReview extends React.Component {
               <label htmlFor='star-5'> ⭑⭑⭑⭑⭑</label>
             </span>
           </div>
+
+          <RenderErrors errors={this.props.errors} />
+
           <div className='review-body-box'>
             <textarea onChange={this.update('body')} placeholder='comments here' />
             <button onClick={this.handleSubmit}>submit</button>

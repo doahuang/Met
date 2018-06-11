@@ -2,24 +2,24 @@ class Api::BookingsController < ApplicationController
   before_action :require_login
 
   def create
-    booking = Booking.new(booking_params)
-    booking.booker_id = current_user.id
-    booking.spot_id = params[:spot_id]
-    if booking.save
-      render :index
+    @booking = Booking.new(booking_params)
+    @booking.booker_id = current_user.id
+    @booking.spot_id = params[:spot_id]
+    if @booking.save
+      render 'api/booking/show'
     else
-      render json: booking.errors.full_messages, status: 422
+      render json: @booking.errors.full_messages, status: 422
     end
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def destroy
-    booking = Booking.find(params[:id])
+    booking = current_user.bookings.find(params[:id])
     booking.destroy
-    render :index
+    render json: {}
   end
 
   private
