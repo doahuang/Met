@@ -6,7 +6,7 @@ class Api::BookingsController < ApplicationController
     @booking.booker_id = current_user.id
     @booking.spot_id = params[:spot_id]
     if @booking.save
-      render 'api/booking/show'
+      render 'api/bookings/show'
     else
       render json: @booking.errors.full_messages, status: 422
     end

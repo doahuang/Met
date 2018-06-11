@@ -3,12 +3,12 @@ export const fetchBookings = () => $.ajax({
 });
 
 export const createBooking = booking => $.ajax({
-  method: 'POST', url: 'api/bookings',
+  method: 'POST', url: `api/spots/${booking.spotId}/bookings`,
   data: { booking: payload(booking) }
 });
 
-export const deleteBooking = booking => $.ajax({
-  method: 'DELETE', url: `api/bookings/${booking.id}`
+export const deleteBooking = id => $.ajax({
+  method: 'DELETE', url: `api/bookings/${id}`
 });
 
 const payload = booking => ({
