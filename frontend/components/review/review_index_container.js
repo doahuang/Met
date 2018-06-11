@@ -8,7 +8,6 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = dispatch => ({
-  // fetchReviews: () => dispatch(fetchReviews()),
   deleteReview: id => dispatch(deleteReview(id))
 });
 

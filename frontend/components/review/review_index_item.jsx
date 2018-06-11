@@ -5,8 +5,9 @@ const ReviewIndexItem = ({ currentUser, spotId, review, deleteReview }) => {
   const toggleDelete = () => {
     if (currentUser && currentUser.id == review.reviewerId) {
       return (
-        <Link to={`/spots/${spotId}`}
-          onClick={() => deleteReview(review.id)}>remove</Link>
+        <Link to={`/spots/${spotId}`} onClick={() => deleteReview(review.id)}>
+          remove
+        </Link>
       );
     }
   }

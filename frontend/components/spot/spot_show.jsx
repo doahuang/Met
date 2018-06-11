@@ -34,16 +34,15 @@ export default class SpotShow extends React.Component {
   }
 
   render() {
-    let spot = this.props.spot
+    let { spot, reviews, currentUser } = this.props;
 
     if (!spot) {
       return null;
     }
 
-    let reviews= this.props.reviews;
-
     return (
       <div className='spot-show-container'>
+
         <SpotBanner imageUrl={spot.imageUrl} />
 
         <div className='spot-show-body'>
@@ -56,8 +55,8 @@ export default class SpotShow extends React.Component {
               <div className='description'><p>{spot.description}</p></div>
             </div>
 
-            <ReviewIndexContainer spot={spot} reviews={reviews}
-              currentUser={this.props.currentUser} />
+            <ReviewIndexContainer spot={spot}
+              reviews={reviews} currentUser={currentUser} />
           </div>
 
           <div className='spot-show-booking'>

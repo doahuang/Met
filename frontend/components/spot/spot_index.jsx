@@ -12,13 +12,11 @@ export default class SpotIndex extends React.Component {
   }
 
   render() {
-    let spots = this.props.spots;
+    let { spots, reviews } = this.props;
 
     if (!spots) {
       return null;
     }
-
-    let reviews = this.props.reviews;
 
     spots = spots.map(spot => {
       let spotReviews = reviews.filter(review => review.spotId === spot.id);
