@@ -21,6 +21,6 @@ export const createSpot = spot => dispatch => {
 }
 
 export const updateSpot = spot => dispatch => {
-  return APIUtil.updateSpot(spot).then(spots => dispatch(receiveSpot(spot)),
+  return APIUtil.updateSpot(spot).then(spot => dispatch(receiveSpot(spot)),
     err => dispatch(receiveSessionErrors(err.responseJSON)));
 }

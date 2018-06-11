@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { createSpot } from './actions/spot';
+//test
+// import { fetchReviews, createReview, deleteReview } from './utils/review';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -20,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.createSpot = createSpot;
-  window.dispatch = store.dispatch;
+  //test
+  // window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

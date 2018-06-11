@@ -9,3 +9,5 @@ export const createBooking = booking => $.ajax({
 export const deleteBooking = booking => $.ajax({
   method: 'DELETE', url: `api/bookings/${booking.id}`
 });
+
+//to change
