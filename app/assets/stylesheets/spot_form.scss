@@ -1,105 +1,114 @@
 @import 'colors';
 
-.spot-form-container {
+.spot-listing-container {
   color: $black;
-  height: 720px;
-  background-image: url('http://www.pngmart.com/files/3/Legolas-PNG-File.png');
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: contain;
+  display: flex;
+  justify-content: center;
+  padding: 35px 80px;
+
+  .spot-map-container {
+    padding: 20px;
+
+    .spot-map {
+      width: 400px;
+      height: 300px;
+    }
+
+    .button-box {
+      margin: 20px 0 0;
+      padding: 20px 0;
+      border-top: 1px solid $lightgrey;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        border: none;
+        padding: 12px 24px;
+        background-color: $green;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:active {
+          background-color: $darkgreen;
+        }
+      }
+    }
+  }
 
   .spot-form-box {
-    padding: 40px 0 0;
-    padding-left: 200px;
+    padding: 20px;
+    font-size: 18px;
 
     h2 {
-      display: inline-block;
       font-size: 30px;
     }
 
     form {
-      font-size: 18px;
-      padding: 30px 0;
+      margin: 20px 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
 
       label {
         color: grey;
       }
 
       input, textarea {
-        color: $black;
-        margin: 8px 0;
         display: block;
-        height: 50px;
-        width: 45%;
-        box-sizing: border-box;
-        padding: 20px;
+        color: $black;
+        margin: 5px 0;
+        padding: 8px 16px;
         border: 1px solid $lightgrey;
         border-radius: 2px;
+        width: 80%;
+        box-sizing: border-box;
 
         &:focus {
           border: 1px solid $green;
         }
       }
 
-      textarea {
-        height: 100px;
-        resize: none;
-      }
-
-      div {
+      .number-box {
         display: flex;
         justify-content: space-between;
-        width: 45%;
+        width: 80%;
 
-        input{
-          width: 100%;
-        }
+        div {
+          position: relative;
+          width: 45%;
 
-        label:last-child {
-          margin-left: 50px;
+          input {
+            width: 100%;
+          }
         }
       }
 
-      .button-box {
-        margin: 30px 0;
-        display: flex;
-        justify-content: flex-end;
-
-        button {
-          border: none;
-          padding: 16px 20px;
-          background-color: $green;
-          color: white;
-          border-radius: 4px;
-          cursor: pointer;
-
-          &:active {
-            background-color: $darkgreen;
-          }
-        }
+      textarea {
+        height: 120px;
+        resize: none;
       }
     }
   }
 }
 
-@media screen and (max-width: 830px) {
-  .spot-form-container {
-    background: none;
+@media screen and (max-width: 1000px) {
+  .spot-listing-container {
     display: grid;
-    justify-content: center;
 
     .spot-form-box {
-      padding-left: 80px;
+      margin: 0 20px;
 
       form {
-        input, textarea {
-          width: 85%;
-        }
-
-        div {
-          width: 85%;
+        input, textarea, .number-box {
+          width: 100%;
         }
       }
+    }
+
+    .spot-map-container {
+      display: grid;
+      justify-content: center;
     }
   }
 }

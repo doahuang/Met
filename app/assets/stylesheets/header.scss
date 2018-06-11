@@ -59,14 +59,28 @@ header {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 990px) {
   nav .hide {
     display: none;
   }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 820px) {
   nav {
-    display: none;
+    li {
+      display: none;
+    }
+
+    .demo {
+      display: block;
+    }
+  }
+
+  .logo-search-box {
+    width: 100%;
+
+    .search-bar {
+      width: 75%;
+    }
   }
 }

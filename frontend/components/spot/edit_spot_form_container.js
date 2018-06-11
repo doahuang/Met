@@ -6,7 +6,7 @@ import SpotForm from './spot_form';
 
 const msp = ({ entities }, ownProps) => ({
   spot: entities.spots[ownProps.match.params.spotId],
-  formType: 'Now let\'s update some details about your spot.'
+  formType: 'Now let\'s update some details.'
 });
 
 const mdp = dispatch => ({
