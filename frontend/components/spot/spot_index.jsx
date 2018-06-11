@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SpotIndexItem from './spot_index_item';
+import { fetchReviews } from '../../actions/review';
 
 export default class SpotIndex extends React.Component {
   componentDidMount() {

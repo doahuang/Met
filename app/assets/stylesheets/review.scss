@@ -47,9 +47,22 @@
         padding: 10px 0;
         border-bottom: 1px solid $lightgrey;
 
-        .reviewer {
-          font-size: 18px;
-          font-weight: bold;
+        div {
+          display: flex;
+          justify-content: space-between;
+
+          .reviewer {
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          a {
+            color: $blue;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
 
         p {

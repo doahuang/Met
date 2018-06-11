@@ -24,7 +24,10 @@ export default class ReviewIndex extends React.Component {
     reviews = reviews.map((review, i) => {
       avgRating += parseInt(review.rating);
 
-      return <ReviewIndexItem key={i} review={review} deleteReview={deleteReview} />;
+      return <ReviewIndexItem key={i}
+        currentUser={this.props.currentUser}
+        spotId={this.props.spot.id} review={review}
+        deleteReview={this.props.deleteReview} />;
     });
 
     avgRating = Math.ceil(avgRating/reviewNum);
