@@ -1,11 +1,11 @@
 import React from 'react';
 
 import SpotIndexItem from './spot_index_item';
-import { fetchReviews } from '../../actions/review';
 
 export default class SpotIndex extends React.Component {
   componentDidMount() {
     this.props.fetchSpots();
+    this.props.fetchReviews();
   }
 
   render() {
@@ -15,9 +15,13 @@ export default class SpotIndex extends React.Component {
       return null;
     }
 
-    spots = spots.map(spot => (
-      <SpotIndexItem key={spot.id} spot={spot} />
-    ));
+    let reviews = this.props.reviews;
+    
+    spots = spots.map(spot => {
+      let spotReviews = reviews.filter(review => review.spotId === spot.id);
+
+      return <SpotIndexItem key={spot.id} spot={spot} reviews={spotReviews} />
+    });
 
     return (
       <div className='spot-index-container'>

@@ -5,7 +5,8 @@ import SpotShow from './spot_show';
 
 const msp = ({ entities, session }, ownProps) => ({
   spot: entities.spots[ownProps.match.params.spotId],
-  currentUser: entities.users[session.id]
+  currentUser: entities.users[session.id],
+  reviews: Object.values(entities.reviews) //to change
 });
 
 const mdp = dispatch => ({
