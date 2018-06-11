@@ -27,6 +27,6 @@ class Spot < ApplicationRecord
   has_many :reviewers, through: :reviews, source: :reviewer
 
   def location
-    'somewhere'
+    'Somewhere'
   end
 end
