@@ -5,7 +5,8 @@ import StarRating from '../star_rating';
 
 const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
-  let spot = booking.spot;
+  let { spot, guests } = booking;
+  let guestsSum = guests > 1 ? `${guests} guests` : `${guests} guest`;
   reviews = reviews.filter(review => review.spotId === spot.id);
 
   return (
@@ -15,7 +16,8 @@ const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
       </div>
       <div className='booking-info'>
         <h1><Link className='spot-name' to={url}>{spot.name}</Link></h1>
-        <p>{booking.beginDate} ~ {booking.endDate} · {booking.guests} guests</p>
+        <p>{booking.beginDate} ~ {booking.endDate}</p>
+        <p>{guestsSum}</p>
         <p className='spot-loc'>{spot.location}</p>
 
         <StarRating reviews={reviews} />
