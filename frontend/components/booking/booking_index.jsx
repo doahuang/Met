@@ -3,9 +3,7 @@ import BookingIndexItem from './booking_index_item';
 
 export default class BookingIndex extends React.Component {
   componentDidMount() {
-    if (this.props.bookings.length === 0) {
-      this.props.fetchBookings();
-    }
+    this.props.fetchBookings();
     this.props.fetchReviews();
   }
 

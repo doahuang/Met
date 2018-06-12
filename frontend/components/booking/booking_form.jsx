@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
-import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
+// import 'react-dates/initialize';
+// import { DateRangePicker } from 'react-dates';
 
 import RenderErrors from '../errors';
 
@@ -38,24 +37,22 @@ class BookingForm extends React.Component {
     return (
       <div className='booking-form-container'>
         <div className='booking-date-calendar'>
-          <DateRangePicker
-            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-          />
+          <label>Start Date</label>
+          <input type='date' value={this.state.beginDate}
+            onChange={this.update('beginDate')} />
+          <label>End Date</label>
+          <input type='date' value={this.state.endDate}
+            onChange={this.update('endDate')} />
         </div>
         <div className='booking-guests'>
+          <label>Guests</label>
           <select>{ dropdown }</select>
         </div>
+        <RenderErrors errors={this.props.errors} />
         <div className='button-box'>
           <button onClick={this.handleSubmit}>Request to book</button>
           <p>You won’t be charged yet</p>
         </div>
-        <RenderErrors errors={this.props.errors} />
       </div>
     );
   }

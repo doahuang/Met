@@ -1,5 +1,5 @@
 @import 'colors';
-@import 'react-dates/lib/css/_datepicker.css';
+// @import 'react-dates/lib/css/_datepicker';
 
 .spot-show-container {
   color: $black;
@@ -96,7 +96,7 @@
     }
 
     .spot-show-booking {
-      height: 365px;
+      height: 500px;
       width: 326px;
       border: 1px solid $lightgrey;
       padding: 20px 24px;
@@ -117,17 +117,26 @@
 
       .booking-form-container {
         .booking-date-calendar {
-          margin: 20px 0;
+          margin: 20px 0 0;
+
+          input {
+            margin: 5px 0;
+            margin-bottom: 20px;
+            height: 40px;
+          }
         }
 
         .booking-guests {
           select {
-            display: block;
+            margin: 5px 0;
+            background-color: white;
+            font-size: 16px;
             height: 40px;
           }
         }
 
         ul {
+          position: absolute;
           margin: 20px 0 0;
           list-style: none;
         }
@@ -139,12 +148,14 @@
         }
 
         .button-box {
+          margin: 80px 0 0;
+
           p {
             text-align: center;
           }
 
           button {
-            margin: 20px 0 10px;
+            margin-bottom: 20px;
             color: white;
             background-color: $red;
             padding: 12px 24px;

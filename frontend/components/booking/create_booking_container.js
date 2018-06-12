@@ -5,7 +5,7 @@ import { createBooking } from '../../actions/booking';
 import { clear } from '../../actions/session';
 
 const _nullBooking = {
-  beginDate: null, endDate: null, guests: 0
+  beginDate: null, endDate: null, guests: 1
 }
 
 const msp = ({ errors }, ownProps) => ({
