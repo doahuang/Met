@@ -1,21 +1,18 @@
 import { connect } from 'react-redux';
 
-import { clear } from '../../actions/session';
 import { createReview } from '../../actions/review';
 import CreateReview from './create_review';
 
 const _nullReview = {
-  rating: null, body: '', spotId: null, reviewerId: null
+  rating: null, body: ''
 };
 
-const msp = ({ errors }, ownProps) => ({
-  errors: errors.session,
+const msp = (state, ownProps) => ({
   review: _nullReview
 });
 
 const mdp = dispatch => ({
-  submit: review => dispatch(createReview(review)),
-  clear: () => dispatch(clear())
+  submit: review => dispatch(createReview(review))
 });
 
 export default connect(msp, mdp)(CreateReview);

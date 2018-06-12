@@ -1,18 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import RenderErrors from '../errors';
-
 class CreateReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillUnmount() {
-    this.props.clear();
   }
 
   update(field) {
@@ -61,9 +55,6 @@ class CreateReview extends React.Component {
               <label htmlFor='star-5'> ⭑⭑⭑⭑⭑</label>
             </span>
           </div>
-
-          <RenderErrors errors={this.props.errors} />
-
           <div className='review-body-box'>
             <textarea onChange={this.update('body')} placeholder='comments here' />
             <button onClick={this.handleSubmit}>submit</button>

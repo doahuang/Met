@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SpotBanner from './spot_banner';
 import ReviewIndexContainer from '../review/review_index_container';
+import CreateBookingContainer from '../booking/create_booking_container';
 import StarRating from '../star_rating';
 
 export default class SpotShow extends React.Component {
@@ -68,8 +69,7 @@ export default class SpotShow extends React.Component {
               <p><StarRating reviews={reviews} /> { reviews.length }</p>
             </div>
 
-            <div>Booking component here</div>
-
+            <CreateBookingContainer spot={spot} />
           </div>
         </div>
       </div>
