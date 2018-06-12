@@ -6,28 +6,14 @@ export default class BookingIndex extends React.Component {
     if (this.props.bookings.length === 0) {
       this.props.fetchBookings();
     }
-    if (this.props.spots.length === 0) {
-      this.props.fetchSpots();
-    }
+    this.props.fetchReviews();
   }
 
   render() {
-    let { bookings, spots } = this.props;
-
-    if (!bookings) {
-      return null;
-    }
+    let { bookings, reviews } = this.props;
 
     bookings = bookings.map((booking, i) => {
-      let spot = spots.find(spot => spot.id === booking.spotId);
-
-      if (!spot) {
-        return null;
-      }
-
-      return (
-        <BookingIndexItem key={i} booking={booking} spot={spot} />
-      );
+      return <BookingIndexItem key={i} booking={booking} reviews={reviews} />;
     });
 
     return (
@@ -40,7 +26,9 @@ export default class BookingIndex extends React.Component {
           </div>
           <div className='gift'></div>
         </div>
-        <ul className='booking-index-list'>{ bookings }</ul>
+        <ul className='booking-index-list'>
+          { bookings }
+        </ul>
       </div>
     );
   }

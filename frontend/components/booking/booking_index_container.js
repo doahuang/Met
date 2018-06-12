@@ -2,17 +2,17 @@ import { connect } from 'react-redux';
 
 import BookingIndex from './booking_index';
 import { fetchBookings, deleteBooking } from '../../actions/booking';
-import { fetchSpots } from '../../actions/spot';
+import { fetchReviews } from '../../actions/review';
 
 const msp = ({ entities }) => ({
   bookings: Object.values(entities.bookings),
-  spots: Object.values(entities.spots)
+  reviews: Object.values(entities.reviews)
 });
 
 const mdp = dispatch => ({
   fetchBookings: () => dispatch(fetchBookings()),
   deleteBooking: id => dispatch(deleteBooking(id)),
-  fetchSpots: () => dispatch(fetchSpots())
+  fetchReviews: () => dispatch(fetchReviews())
 });
 
 export default connect(msp, mdp)(BookingIndex);

@@ -67,7 +67,7 @@ class SpotForm extends React.Component {
             <div className='map'>Map component here</div>
 
             <div className='button-box'>
-              <Link to='/'><button>Back</button></Link>
+              <button onClick={() => this.props.history.goBack()}>Back</button>
               <button onClick={this.handleSubmit}>Looks good</button>
             </div>
             <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
