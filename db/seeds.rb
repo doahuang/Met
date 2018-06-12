@@ -22,6 +22,7 @@ ActiveRecord::Base.transaction do
     loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
     geo = %w(Volcano Valley Castle Mountain Flatland River Forest).sample
     des = rand(1..5).times.map{ Faker::Hobbit.quote }.join(' ')
+    random = [982, 987, 990, 992, 986, 991]
     Spot.create!(
       name: loc,
       image_url: "https://picsum.photos/1600/900/?image=#{rand(980..995)}",

@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import RenderErrors from '../errors';
-import { clear } from '../../actions/session';
 
 class CreateReview extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class CreateReview extends React.Component {
   }
 
   componentWillUnmount() {
-    clear();
+    this.props.clear();
   }
 
   update(field) {

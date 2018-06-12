@@ -10,36 +10,44 @@
     padding: 20px;
 
     .spot-map {
-      width: 400px;
-      height: 300px;
-    }
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
 
-    .button-box {
-      margin: 20px 0 0;
-      padding: 20px 0;
-      border-top: 1px solid $lightgrey;
-      display: flex;
-      justify-content: space-between;
+      .map {
+        width: 400px;
+        height: 300px;
+      }
 
-      button {
-        border: none;
-        padding: 12px 24px;
-        background-color: $green;
-        color: white;
-        border-radius: 4px;
-        cursor: pointer;
+      .button-box {
+        margin: 20px 0 0;
+        padding: 20px 0;
+        border-top: 1px solid $lightgrey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &:active {
-          background-color: $darkgreen;
+        button {
+          border: none;
+          padding: 12px 24px;
+          box-sizing: border-box;
+          background-color: $green;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:active {
+            background-color: $darkgreen;
+          }
         }
       }
-    }
 
-    .errors {
-      color: $red;
+      .errors {
+        color: $red;
 
-      ul {
-        list-style: none;
+        ul {
+          list-style: none;
+        }
       }
     }
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 
 import RenderErrors from '../errors';
-import { clear } from '../../actions/session';
 
 class SpotForm extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class SpotForm extends React.Component {
   }
 
   componentWillUnmount() {
-    clear();
+    this.props.clear();
   }
 
   update(field) {
@@ -64,14 +63,15 @@ class SpotForm extends React.Component {
 
         <div className='spot-map-container'>
           <div className='spot-map'>
-            Map component here
-          </div>
-          <div className='button-box'>
-            <Link to='/'><button>Back</button></Link>
-            <button onClick={this.handleSubmit}>Looks good</button>
-          </div>
 
-          <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
+            <div className='map'>Map component here</div>
+
+            <div className='button-box'>
+              <Link to='/'><button>Back</button></Link>
+              <button onClick={this.handleSubmit}>Looks good</button>
+            </div>
+            <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
+          </div>
         </div>
       </div>
     );

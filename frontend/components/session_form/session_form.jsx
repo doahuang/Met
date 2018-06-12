@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { clear } from '../../actions/session';
 import RenderErrors from '../errors';
 
 export default class SessionForm extends React.Component {
@@ -13,7 +12,7 @@ export default class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    clear();
+    this.props.clear();
   }
 
   update(field) {

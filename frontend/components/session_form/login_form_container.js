@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { login } from '../../actions/session';
+import { login, clear } from '../../actions/session';
 import SessionForm from './session_form';
 
 const msp = ({ errors }) => ({
@@ -13,7 +13,8 @@ const msp = ({ errors }) => ({
 });
 
 const mdp = dispatch => ({
-  submit: user => dispatch(login(user))
+  submit: user => dispatch(login(user)),
+  clear: () => dispatch(clear())
 });
 
 export default connect(msp, mdp)(SessionForm);

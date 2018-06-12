@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { updateSpot } from '../../actions/spot';
+import { clear } from '../../actions/session';
 import SpotForm from './spot_form';
 
 const msp = ({ entities, errors }, ownProps) => ({
@@ -11,7 +12,8 @@ const msp = ({ entities, errors }, ownProps) => ({
 });
 
 const mdp = dispatch => ({
-  submit: spot => dispatch(updateSpot(spot))
+  submit: spot => dispatch(updateSpot(spot)),
+  clear: () => dispatch(clear())
 });
 
 export default connect(msp, mdp)(SpotForm);

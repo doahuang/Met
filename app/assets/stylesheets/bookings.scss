@@ -1,3 +1,126 @@
-// Place all the styles related to the api/bookings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+
+.booking-index-container {
+  color: $black;
+  font-size: 16px;
+  display: flex;
+  flex-flow: column;
+  margin: 60px 0;
+
+  .promo {
+    padding: 0 40px 40px;
+    display: flex;
+    justify-content: center;
+
+    .ad {
+      display: flex;
+      flex-direction: column;
+      width: 62%;
+      padding: 42px 0 0 10px;
+
+      h2 {
+        font-size: 38px;
+        font-weight: lighter;
+      }
+
+      p {
+        margin-top: 25px;
+        display: inline-block;
+      }
+
+      button {
+        width: 160px;
+        height: 43px;
+        padding: 10px 28px;
+        border: none;
+        border-radius: 4px;
+        background-color: $red;
+        color: white;
+        margin-top: 30px;
+        cursor: pointer;
+
+        &:active {
+          background-color: $darkred;
+        }
+      }
+    }
+
+    .gift {
+      width: 300px;
+      height: 200px;
+      background-image: url('https://a0.muscache.com/airbnb/static/account_activation/promo-c6aa8388b096405e98b4ccbb69cd14f7.png');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: contain;
+    }
+  }
+
+  .booking-index-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .booking-index-item {
+      display: block;
+      width: 326px;
+      border: 1px solid $lightgrey;
+      box-sizing: border-box;
+      margin: 20px 12px 0;
+
+      .spot-img {
+        img {
+          width: 100%;
+          height: 200px;
+          display: block;
+        }
+      }
+
+      .booking-info {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+
+        h1 {
+          padding: 30px 0;
+          font-size: 30px;
+          font-weight: 100;
+        }
+
+        a {
+          display: inline-block;
+        }
+
+        .spot-loc {
+          font-size: 18px;
+          margin: 10px 0 20px;
+        }
+
+        span {
+          font-size: 22px;
+          color: $blue;
+        }
+
+        div {
+          width: 90%;
+          padding: 15px 0;
+          border-bottom: 1px solid $lightgrey;
+
+          p {
+            cursor: pointer;
+
+            &:hover {
+              color: $blue;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        div:last-child {
+          border: 0;
+        }
+      }
+    }
+  }
+}
