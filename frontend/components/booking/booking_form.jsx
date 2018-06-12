@@ -31,22 +31,27 @@ class BookingForm extends React.Component {
   render() {
     let dropdown = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     dropdown = dropdown.map((op, i) => (
-      <option key={i} value={i}>{i + 1} guests</option>
+      <option key={i} value={i + 1}>
+        {i + 1} guests
+      </option>
     ));
+
+    let today = new Date();
+    let todayDate = today.toJSON().split('T')[0];
 
     return (
       <div className='booking-form-container'>
         <div className='booking-date-calendar'>
           <label>Start Date</label>
           <input type='date' value={this.state.beginDate}
-            onChange={this.update('beginDate')} />
+            min={todayDate} onChange={this.update('beginDate')} />
           <label>End Date</label>
           <input type='date' value={this.state.endDate}
-            onChange={this.update('endDate')} />
+            min={todayDate} onChange={this.update('endDate')} />
         </div>
         <div className='booking-guests'>
           <label>Guests</label>
-          <select>{ dropdown }</select>
+          <select onChange={this.update('guests')}>{ dropdown }</select>
         </div>
         <RenderErrors errors={this.props.errors} />
         <div className='button-box'>

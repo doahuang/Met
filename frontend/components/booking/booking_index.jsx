@@ -10,9 +10,12 @@ export default class BookingIndex extends React.Component {
   render() {
     let { bookings, reviews } = this.props;
 
-    bookings = bookings.map((booking, i) => {
-      return <BookingIndexItem key={i} booking={booking} reviews={reviews} />;
-    });
+    bookings = bookings.map((booking, i) => (
+      <BookingIndexItem key={i}
+        booking={booking} reviews={reviews}
+        deleteBooking={this.props.deleteBooking}
+      />
+    ));
 
     return (
       <div className='booking-index-container'>

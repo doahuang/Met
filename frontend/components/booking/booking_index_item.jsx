@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import StarRating from '../star_rating';
 
-const BookingIndexItem = ({ booking, reviews }) => {
+const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
   let spot = booking.spot;
   reviews = reviews.filter(review => review.spotId === spot.id);
@@ -20,9 +20,13 @@ const BookingIndexItem = ({ booking, reviews }) => {
 
         <StarRating reviews={reviews} />
 
-        <div><Link to={url}><p>Read Your Review</p></Link></div>
-        <div><p>View Receipt</p></div>
-        <div><p>Send or request money</p></div>
+        <div><Link to={url}>Read Your Review</Link></div>
+        <div>
+          <Link to={'/bookings'}
+            onClick={() => deleteBooking(booking.id)}>
+            Cancel Booking
+          </Link>
+        </div>
       </div>
     </li>
   );
