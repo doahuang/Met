@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { deleteReview } from '../../actions/review';
 import ReviewIndex from './review_index';
+import { deleteReview } from '../../actions/review';
 
 const msp = (state, ownProps) => ({
   reviews: ownProps.reviews

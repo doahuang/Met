@@ -14,13 +14,13 @@ Review.destroy_all
 ActiveRecord::Base.transaction do
   User.create!(username: 'test', password: '123123')
   3.times do
-    user = [Faker::LordOfTheRings.character, Faker::Hobbit.character].sample
+    user = Faker::LordOfTheRings.character
     User.create!(username: user, password: '123123')
   end
 
   12.times do
     loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
-    geo = %w(Volcano Valley Village Tower Mountain Flatland Cave Castle Forest).sample
+    geo = %w(Volcano Valley Castle Mountain Flatland River Forest).sample
     des = rand(1..5).times.map{ Faker::Hobbit.quote }.join(' ')
     Spot.create!(
       name: loc,
@@ -35,7 +35,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  15.times do
+  24.times do
     begin_date = Date.new(2018, rand(1..12), rand(1..28))
     Booking.create!(
       begin_date: begin_date,
@@ -46,8 +46,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-
-  40.times do
+  48.times do
     Review.create!(
       rating: rand(1..5),
       body: Faker::Hobbit.quote,
