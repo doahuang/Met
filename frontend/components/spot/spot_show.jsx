@@ -17,8 +17,8 @@ export default class SpotShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let spot = this.props.spot;
     let id = nextProps.match.params.spotId;
+    let spot = this.props.spot;
 
     if (!spot || spot && spot.id != id) {
       this.props.fetchSpot(id);

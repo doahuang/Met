@@ -5,6 +5,8 @@ export default class MarkerManager {
   }
 
   updateMarkers(spots) {
+    console.log('update markers');
+
     const spotsObj = {};
     spots.forEach(spot => spotsObj[spot.id] = spot);
 
@@ -20,6 +22,7 @@ export default class MarkerManager {
   removeMarker(marker) {
     marker.setMap(null);
     delete this.markers[marker.spotId];
+    console.log('remove marker');
   }
 
   createMarkerFromSpot(spot) {

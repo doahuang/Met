@@ -37,6 +37,12 @@
 
     .close-btn {
       font-size: 40px;
+      display: flex;
+      justify-content: flex-end;
+
+      span {
+        cursor: pointer;
+      }
     }
 
     h2 {
@@ -60,6 +66,7 @@
     }
 
     button {
+      cursor: pointer;
       margin: 50px 0 10px;
       width: 100%;
       padding: 12px;
@@ -67,7 +74,6 @@
       color: white;
       font-weight: 600;
       border-radius: 4px;
-      cursor: pointer;
 
       &:active {
         background-color: $darkred;

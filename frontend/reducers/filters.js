@@ -6,6 +6,9 @@ const filtersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case UPDATE_BOUNDS:
+
+      console.log('update bounds');
+      
       return merge({}, state, { 'bounds': action.bounds });
     default:
       return state;

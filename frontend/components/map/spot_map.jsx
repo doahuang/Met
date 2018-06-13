@@ -33,7 +33,7 @@ export default class SpotMap extends React.Component {
 
   render() {
     return (
-      <div className='spot-map-container'>
+      <div className='map-container'>
         <div id='map-container' ref={ map => this.mapNode = map }>
           Spot Map here
         </div>

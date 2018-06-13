@@ -59,6 +59,10 @@
       width: 600px;
       box-sizing: border-box;
 
+      .hide {
+        display: none;
+      }
+
       div {
         .landscape {
           color: $yellow;

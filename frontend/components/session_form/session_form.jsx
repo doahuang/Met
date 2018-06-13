@@ -33,7 +33,9 @@ export default class SessionForm extends React.Component {
     return (
       <div className='session-form-container'>
         <div className='form-box'>
-          <div className='close-btn'><Link to='/'>&times;</Link></div>
+          <div className='close-btn'>
+            <span onClick={() => this.props.history.push('/')}> &times;</span>
+          </div>
           <form>
             <h2>{formType}</h2>
             <input placeholder='Username'

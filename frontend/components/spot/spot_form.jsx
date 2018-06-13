@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 
+import SpotMap from '../map/spot_map';
 import RenderErrors from '../errors';
 
 class SpotForm extends React.Component {
@@ -65,9 +66,9 @@ class SpotForm extends React.Component {
 
         <div className='spot-map-container'>
           <div className='spot-map'>
-            <div className='map'>
-              Map component here
-            </div>
+
+            <SpotMap spots={[]} updateBounds={null} />
+
             <div className='button-box'>
               <button onClick={() => this.props.history.goBack()}>Back</button>
               <button onClick={this.handleSubmit}>Looks good</button>

@@ -26,7 +26,7 @@ export default class ReviewIndex extends React.Component {
           </div>
         </div>
 
-        <CreateReviewContainer spot={spot} reviewer={currentUser} />
+        <CreateReviewContainer spot={spot} currentUser={currentUser} />
 
         <div className='review-index-container'>
           <ul className='review-index'>{ reviewsList }</ul>

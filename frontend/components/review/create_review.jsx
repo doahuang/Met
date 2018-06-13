@@ -24,6 +24,10 @@ class CreateReview extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      return null;
+    }
+
     return (
       <div className='create-review-box'>
         <form className='create-review-form'>
