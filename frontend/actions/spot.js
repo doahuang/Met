@@ -7,8 +7,8 @@ export const RECEIVE_SPOT = 'RECEIVE_SPOT';
 const receiveSpots = spots => ({ type: RECEIVE_SPOTS, spots });
 const receiveSpot = spot => ({ type: RECEIVE_SPOT, spot });
 
-export const fetchSpots = () => dispatch => {
-  return APIUtil.fetchSpots().then(spots => dispatch(receiveSpots(spots)));
+export const fetchSpots = filters => dispatch => {
+  return APIUtil.fetchSpots(filters).then(spots => dispatch(receiveSpots(spots)));
 }
 
 export const fetchSpot = id => dispatch => {

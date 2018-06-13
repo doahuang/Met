@@ -18,16 +18,18 @@ ActiveRecord::Base.transaction do
     User.create!(username: user, password: '123123')
   end
 
-  random = [980, 984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991].shuffle
-  12.times do |i|
+  photos = [980, 984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991]
+  lat = 37.7758
+  lng = -122.435
+  12.times do
     loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
     geo = %w(Volcano Valley Castle Mountain Flatland River Forest).sample
     des = rand(1..5).times.map{ Faker::Hobbit.quote }.join(' ')
     Spot.create!(
       name: loc,
-      image_url: "https://picsum.photos/1600/900/?image=#{random[i]}",
-      latitude: rand(0.0..100.0).round(2),
-      longitude: rand(0.0..100.0).round(2),
+      image_url: "https://picsum.photos/1600/900/?image=#{photos.sample}",
+      latitude: lat + rand(-0.03..0.03).round(4),
+      longitude: lng + rand(-0.03..0.03).round(4),
       landscape: geo,
       size: rand(1..100),
       price: rand(1..10000),

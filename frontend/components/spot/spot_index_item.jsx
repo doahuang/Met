@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import StarRating from '../star_rating';
 
-const SpotIndexItem = ({ spot, reviews }) => {
+const SpotIndexItem = ({ spot, reviewCount, avgRating }) => {
   let url = `/spots/${spot.id}`;
   let location = `${spot.landscape} · ${spot.location}`.toUpperCase();
   let price = `$${spot.price} per day · Free cancellation`;
@@ -16,8 +16,7 @@ const SpotIndexItem = ({ spot, reviews }) => {
           <p className='location'>{location}</p>
           <Link to={url}><h4>{spot.name}</h4></Link>
           <p>{price}</p>
-          
-          <StarRating reviews={reviews} /> { reviews.length }
+          <StarRating rating={avgRating} /> { reviewCount }
         </div>
       </li>
     </div>

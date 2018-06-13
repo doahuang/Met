@@ -29,4 +29,23 @@ class Spot < ApplicationRecord
   def location
     'Somewhere'
   end
+
+  def self.in_bounds(bounds)
+    min_lat = bounds['southWest']['lat']
+    max_lat = bounds['northEast']['lat']
+    min_lng = bounds['southWest']['lng']
+    max_lng = bounds['northEast']['lng']
+
+    Spot
+      .where(latitude: min_lat..max_lat)
+      .where(longitude: min_lng..max_lng)
+  end
+
+  def avg_rating
+    reviews.average(:rating).round(1)
+  end
+
+  def review_count
+    reviews.count
+  end
 end

@@ -1,27 +1,19 @@
 import React from 'react';
-
 import SpotIndexItem from './spot_index_item';
 
 export default class SpotIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchSpots();
-
-    if (this.props.reviews.length === 0) {
-      this.props.fetchReviews();
-    }
+    this.props.fetchSpots().then(() => {
+      return this.props.reviews.length === 0 ? this.props.fetchReviews() : null
+    });
   }
 
   render() {
-    let { spots, reviews } = this.props;
-
-    if (!spots) {
-      return null;
-    }
-
+    let spots = this.props.spots;
+    
     spots = spots.map(spot => {
-      let spotReviews = reviews.filter(review => review.spotId === spot.id);
-
-      return <SpotIndexItem key={spot.id} spot={spot} reviews={spotReviews} />
+      return <SpotIndexItem key={spot.id} spot={spot}
+                reviewCount={spot.reviewCount} avgRating={spot.avgRating} />
     });
 
     return (
