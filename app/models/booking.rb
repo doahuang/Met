@@ -15,7 +15,13 @@
 class Booking < ApplicationRecord
   validates :begin_date, :end_date, :guests,
             :booker_id, :spot_id, presence: true
+  validate :valid_dates
 
   belongs_to :booker, class_name: :User
   belongs_to :spot
+
+  def valid_dates
+    return if begin_date < end_date && begin_date >= Date.today
+    errors[:base] << 'Invalid date range'
+  end
 end

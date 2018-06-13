@@ -36,7 +36,6 @@ class Api::SpotsController < ApplicationController
 
   def index
     bounds = params[:bounds]
-    # debugger
     @spots = bounds ? Spot.in_bounds(bounds) : Spot.all
   end
 

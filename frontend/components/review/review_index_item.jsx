@@ -18,7 +18,7 @@ const ReviewIndexItem = ({ currentUser, spotId, review, deleteReview }) => {
         <span className='reviewer'>Guest #{review.reviewerId}</span>
         { toggleDelete() }
       </div>
-      <p>{review.body}</p>
+      <p>{review.body ? review.body : 'No comments.'}</p>
     </li>
   );
 }

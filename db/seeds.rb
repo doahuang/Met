@@ -43,7 +43,7 @@ ActiveRecord::Base.transaction do
     Booking.create!(
       begin_date: begin_date,
       end_date: begin_date + rand(1..120),
-      guests: rand(1..100),
+      guests: rand(1..10),
       booker_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)
     )

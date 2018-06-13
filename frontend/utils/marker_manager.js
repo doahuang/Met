@@ -5,13 +5,11 @@ export default class MarkerManager {
   }
 
   updateMarkers(spots) {
-    console.log('update markers');
-
     const spotsObj = {};
     spots.forEach(spot => spotsObj[spot.id] = spot);
 
     spots
-      .filter(spot => !this.markers[spot.ib])
+      .filter(spot => !this.markers[spot.id])
       .forEach(spot => this.createMarkerFromSpot(spot));
 
     Object.keys(this.markers)
@@ -22,7 +20,6 @@ export default class MarkerManager {
   removeMarker(marker) {
     marker.setMap(null);
     delete this.markers[marker.spotId];
-    console.log('remove marker');
   }
 
   createMarkerFromSpot(spot) {
@@ -30,7 +27,7 @@ export default class MarkerManager {
     let marker = new google.maps.Marker({
       position,
       title: spot.name,
-      spodId: spot.id
+      spotId: spot.id
     });
 
     marker.setMap(this.map);
