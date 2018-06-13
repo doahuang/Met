@@ -3,19 +3,18 @@ import BookingIndexItem from './booking_index_item';
 
 export default class BookingIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchBookings();
-    this.props.fetchReviews();
+    this.props.fetchBookings().then(() => {
+      return this.props.reviews.length === 0 ? this.props.fetchReviews() : null
+    });
   }
 
   render() {
     let { bookings, reviews } = this.props;
-
-    bookings = bookings.map((booking, i) => (
-      <BookingIndexItem key={i}
-        booking={booking} reviews={reviews}
-        deleteBooking={this.props.deleteBooking}
-      />
-    ));
+    bookings = bookings.map((booking, i) => {
+      return <BookingIndexItem key={i}
+              booking={booking} reviews={reviews}
+              deleteBooking={this.props.deleteBooking} />;
+    });
 
     return (
       <div className='booking-index-container'>

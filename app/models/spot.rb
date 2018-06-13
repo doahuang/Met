@@ -40,12 +40,4 @@ class Spot < ApplicationRecord
       .where(latitude: min_lat..max_lat)
       .where(longitude: min_lng..max_lng)
   end
-
-  def avg_rating
-    reviews.average(:rating).round(1)
-  end
-
-  def review_count
-    reviews.count
-  end
 end

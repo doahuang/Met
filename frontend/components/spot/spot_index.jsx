@@ -9,11 +9,16 @@ export default class SpotIndex extends React.Component {
   }
 
   render() {
-    let spots = this.props.spots;
-    
+    let { spots, reviews } = this.props;
     spots = spots.map(spot => {
+      
+      let review = reviews.filter(el => el.spotId === spot.id);
+      let rating = 0;
+      review.forEach(el => rating += el.rating);
+      rating = rating / review.length || 0;
+
       return <SpotIndexItem key={spot.id} spot={spot}
-                reviewCount={spot.reviewCount} avgRating={spot.avgRating} />
+                reviewCount={review.length} avgRating={rating} />
     });
 
     return (

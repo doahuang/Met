@@ -7,7 +7,11 @@ const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
   let { spot, guests } = booking;
   let guestsSum = guests > 1 ? `${guests} guests` : `${guests} guest`;
-  reviews = reviews.filter(review => review.spotId === spot.id);
+
+  let review = reviews.filter(el => el.spotId === spot.id);
+  let rating = 0;
+  review.forEach(el => rating += el.rating);
+  rating = rating / review.length || 0;
 
   return (
     <li className='booking-index-item'>
@@ -20,7 +24,7 @@ const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
         <p>{guestsSum}</p>
         <p className='spot-loc'>{spot.location}</p>
 
-        <StarRating reviews={reviews} />
+        <StarRating rating={rating} />
 
         <div><Link to={url}>Read Your Review</Link></div>
         <div>

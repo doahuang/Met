@@ -6,10 +6,10 @@ import StarRating from '../star_rating';
 
 export default class ReviewIndex extends React.Component {
   render() {
-    let { reviews, spot, currentUser, deleteReview } = this.props;
+    let { rating, reviews, spot, currentUser, deleteReview } = this.props;
 
-    let reviewNum = reviews.length;
-    let reviewSum = reviewNum ? `${reviewNum} Reviews` : 'No Reviews yet';
+    let num = reviews.length;
+    let reviewsCount = num ? `${num} Reviews` : 'No Reviews yet';
 
     let reviewsList = reviews.map((review, i) => {
       return <ReviewIndexItem key={i} review={review} spotId={spot.id}
@@ -19,7 +19,7 @@ export default class ReviewIndex extends React.Component {
     return (
       <div className='review-container'>
         <div className='review-search-bar'>
-          <h4>{ reviewSum } <StarRating reviews={reviews} /></h4>
+          <h4>{ reviewsCount } <StarRating rating={rating} /></h4>
           <div className='search-bar'>
             <i className="fas fa-search"></i>
             <input placeholder='Search reviews' />

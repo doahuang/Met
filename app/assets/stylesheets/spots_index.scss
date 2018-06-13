@@ -23,12 +23,16 @@
         text-overflow: ellipsis;
       }
 
-      img {
+      .image-box {
         display: block;
-        min-height: 110px;
-        max-height: 210px;
-        width: 100%;
-        border-radius: 4px;
+
+        img {
+          display: block;
+          min-height: 110px;
+          max-height: 210px;
+          width: 100%;
+          border-radius: 4px;
+        }
       }
 
       .quick-info {

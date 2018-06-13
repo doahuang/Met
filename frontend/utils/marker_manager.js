@@ -5,17 +5,32 @@ export default class MarkerManager {
   }
 
   updateMarkers(spots) {
-    spots.forEach(spot => this.createMarkerFromSpot(spot));
+    const spotsObj = {};
+    spots.forEach(spot => spotsObj[spot.id] = spot);
+
+    spots
+      .filter(spot => !this.markers[spot.ib])
+      .forEach(spot => this.createMarkerFromSpot(spot));
+
+    Object.keys(this.markers)
+      .filter(spotId => !spotsObj[spotId])
+      .forEach((spotId) => this.removeMarker(this.markers[spotId]));
+  }
+
+  removeMarker(marker) {
+    marker.setMap(null);
+    delete this.markers[marker.spotId];
   }
 
   createMarkerFromSpot(spot) {
     let position = new google.maps.LatLng(spot.latitude, spot.longitude);
     let marker = new google.maps.Marker({
       position,
-      title: spot.name
+      title: spot.name,
+      spodId: spot.id
     });
 
     marker.setMap(this.map);
-    this.markers[spot.id] = marker;
+    this.markers[marker.spotId] = marker;
   }
 }

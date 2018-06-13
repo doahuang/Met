@@ -11,7 +11,9 @@ const SpotIndexItem = ({ spot, reviewCount, avgRating }) => {
   return (
     <div className='spot-index-item'>
       <li>
-        <Link to={url}><img src={spot.imageUrl} /></Link>
+        <div className='image-box'>
+          <Link to={url}><img src={spot.imageUrl} /></Link>
+        </div>
         <div className='quick-info'>
           <p className='location'>{location}</p>
           <Link to={url}><h4>{spot.name}</h4></Link>

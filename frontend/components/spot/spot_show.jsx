@@ -42,7 +42,10 @@ export default class SpotShow extends React.Component {
       return null;
     }
 
-    reviews = reviews.filter(review => review.spotId === spot.id);
+    let review = reviews.filter(el => el.spotId === spot.id);
+    let rating = 0;
+    review.forEach(el => rating += el.rating);
+    rating = rating / review.length || 0;
 
     return (
       <div className='spot-show-container'>
@@ -59,14 +62,14 @@ export default class SpotShow extends React.Component {
               <div className='description'><p>{spot.description}</p></div>
             </div>
 
-            <ReviewIndexContainer spot={spot}
-              reviews={reviews} currentUser={currentUser} />
+            <ReviewIndexContainer spot={spot} reviews={review}
+              currentUser={currentUser} rating={rating} />
           </div>
 
           <div className='spot-show-booking'>
             <div className='info'>
               <p><span className='price'>${spot.price}</span> per day</p>
-              <p><StarRating reviews={reviews} /> { reviews.length }</p>
+              <p><StarRating rating={rating} /> { review.length }</p>
             </div>
 
             <CreateBookingContainer spot={spot} />
