@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-//test
-// import { fetchBookings, createBooking, deleteBooking } from './actions/booking';
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -21,12 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-  //test
-  // window.fetchBookings = fetchBookings;
-  // window.createBooking = createBooking;
-  // window.deleteBooking = deleteBooking;
-  // window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

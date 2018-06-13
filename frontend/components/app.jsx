@@ -5,7 +5,8 @@ import { AuthRoute, ProtectedRoute } from '../utils/route';
 import Header from './header/header';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-import SpotIndexContainer from './spot/spot_index_container';
+// import SpotIndexContainer from './spot/spot_index_container';
+import SearchContainer from './search/search_container';
 import SpotShowContainer from './spot/spot_show_container';
 import CreateSpotFormContainer from './spot/create_spot_form_container';
 import EditSpotFormContainer from './spot/edit_spot_form_container';
@@ -16,7 +17,7 @@ const App = () => (
   <div>
     <Header />
     <Switch>
-      <Route exact path='/' component={SpotIndexContainer} />
+      <Route exact path='/' component={SearchContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <ProtectedRoute path='/bookings' component={BookingIndexContainer} />
