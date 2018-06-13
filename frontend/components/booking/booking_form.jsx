@@ -14,7 +14,9 @@ class BookingForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clear();
+    if (this.props.errors.length) {
+      this.props.clear();
+    }
   }
 
   update(field) {
@@ -23,14 +25,18 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     this.state.spotId = this.props.spot.id;
-    this.props.submit(this.state).then(() => this.props.history.push('/bookings'));
+
+    if (this.props.currentUser) {
+      this.props.submit(this.state).then(() => this.props.history.push('/bookings'));
+    } else {
+      this.props.history.push('/login');
+    };
   }
 
   render() {
     let dropdown = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    dropdown = dropdown.map((op, i) => (
+    dropdown = dropdown.map((num, i) => (
       <option key={i} value={i + 1}>
         {i + 1} guests
       </option>

@@ -12,7 +12,9 @@ class SpotForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clear();
+    if (this.props.errors.length) {
+      this.props.clear();
+    }
   }
 
   update(field) {

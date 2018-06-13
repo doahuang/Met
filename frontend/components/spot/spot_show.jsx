@@ -8,10 +8,11 @@ import StarRating from '../star_rating';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
-    this.props.fetchSpot(this.props.match.params.spotId);
+    let { fetchSpot, fetchReviews, reviews } = this.props;
 
-    if (this.props.reviews.length === 0) {
-      this.props.fetchReviews();
+    fetchSpot(this.props.match.params.spotId);
+    if (!reviews.length) {
+      fetchReviews();
     }
   }
 
@@ -37,7 +38,6 @@ export default class SpotShow extends React.Component {
 
   render() {
     let { spot, reviews, currentUser } = this.props;
-
     if (!spot) {
       return null;
     }
@@ -72,7 +72,7 @@ export default class SpotShow extends React.Component {
               <p><StarRating rating={rating} /> { review.length }</p>
             </div>
 
-            <CreateBookingContainer spot={spot} />
+            <CreateBookingContainer spot={spot} currentUser={currentUser} />
           </div>
         </div>
       </div>

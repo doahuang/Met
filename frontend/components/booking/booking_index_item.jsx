@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import StarRating from '../star_rating';
 
-const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
+const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
-  let { spot, guests } = booking;
+  let guests = booking.guests;
   let guestsSum = guests > 1 ? `${guests} guests` : `${guests} guest`;
 
-  let review = reviews.filter(el => el.spotId === spot.id);
+  let review = reviews.filter(el => el.spotId === booking.spotId);
   let rating = 0;
   review.forEach(el => rating += el.rating);
   rating = rating / review.length || 0;
@@ -16,7 +16,7 @@ const BookingIndexItem = ({ booking, reviews, deleteBooking }) => {
   return (
     <li className='booking-index-item'>
       <div className='spot-img'>
-        <Link to={url}><img src={spot.image_url} /></Link>
+        <Link to={url}><img src={spot.imageUrl} /></Link>
       </div>
       <div className='booking-info'>
         <h1><Link className='spot-name' to={url}>{spot.name}</Link></h1>
