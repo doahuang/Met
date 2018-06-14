@@ -10,9 +10,7 @@ class CreateReview extends React.Component {
   }
 
   update(field) {
-    return e => {
-      this.setState({ [field]: e.currentTarget.value });
-    };
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
@@ -20,7 +18,18 @@ class CreateReview extends React.Component {
 
     this.state.spotId = this.props.spot.id;
     this.props.submit(this.state)
-      .then(() => this.props.history.push(`/spots/${this.state.spotId}`));
+      .then(() => this.setState({ rating: null, body: ''}));
+  }
+
+  drawRadioButton(id, value) {
+    return (
+      <span>
+        <input id={id} type='radio' value={value}
+          onChange={this.update('rating')}
+          checked={this.state.rating === value} />
+        <label htmlFor={id}> {value}⭑</label>
+      </span>
+    );
   }
 
   render() {
@@ -33,34 +42,15 @@ class CreateReview extends React.Component {
         <form className='create-review-form'>
           <div className='rating'>
             <span>Rating</span>
-            <span>
-              <input onChange={this.update('rating')}
-                id='star-1' type='radio' name='rating' value='1' />
-              <label htmlFor='star-1'> ⭑</label>
-            </span>
-            <span>
-              <input onChange={this.update('rating')}
-                id='star-2' type='radio' name='rating' value='2' />
-              <label htmlFor='star-2'> ⭑⭑</label>
-            </span>
-            <span>
-              <input onChange={this.update('rating')}
-                id='star-3' type='radio' name='rating' value='3' />
-              <label htmlFor='star-3'> ⭑⭑⭑</label>
-            </span>
-            <span>
-              <input onChange={this.update('rating')}
-                id='star-4' type='radio' name='rating' value='4' />
-              <label htmlFor='star-4'> ⭑⭑⭑⭑</label>
-            </span>
-            <span>
-              <input onChange={this.update('rating')}
-                id='star-5' type='radio' name='rating' value='5' />
-              <label htmlFor='star-5'> ⭑⭑⭑⭑⭑</label>
-            </span>
+            { this.drawRadioButton('1', '1') }
+            { this.drawRadioButton('2', '2') }
+            { this.drawRadioButton('3', '3') }
+            { this.drawRadioButton('4', '4') }
+            { this.drawRadioButton('5', '5') }
           </div>
           <div className='review-body-box'>
-            <textarea onChange={this.update('body')} placeholder='comments here' />
+            <textarea value={this.state.body}
+              onChange={this.update('body')} placeholder='comments here' />
             <button onClick={this.handleSubmit}>submit</button>
           </div>
         </form>

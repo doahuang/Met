@@ -39,20 +39,27 @@ class SpotForm extends React.Component {
     }
 
     let { name, imageUrl, landscape, size, price, description } = this.state;
+    let { spot, updateBounds, errors } = this.props;
+    let latlng;
+    if (spot.latitude) {
+      latlng = new google.maps.LatLng(spot.latitude, spot.longitude);
+    }
+    debugger
 
     return (
       <div className='spot-listing-container'>
         <div className='spot-map-container'>
           <div className='spot-map'>
 
-            <SpotMap spots={[this.props.spot]}
-              updateBounds={this.props.updateBounds} />
+            <SpotMap spots={[spot]}
+              updateBounds={updateBounds}
+              center={latlng}/>
 
             <div className='button-box'>
               <button onClick={() => this.props.history.goBack()}>Back</button>
               <button onClick={this.handleSubmit}>Looks good</button>
             </div>
-            <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
+            <div className='errors'> <RenderErrors errors={errors} /> </div>
           </div>
         </div>
         <div className='spot-form-box'>
