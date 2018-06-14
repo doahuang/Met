@@ -39,8 +39,8 @@ class Api::SpotsController < ApplicationController
     if bounds
       @spots = Spot.in_bounds(bounds)
     else
-      query = params[:query]
-      @spots = query ? Spot.search(query) : Spot.all
+      word = params[:query]
+      @spots = word ? Spot.search(word) : Spot.all
     end
   end
 

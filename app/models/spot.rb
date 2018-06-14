@@ -48,13 +48,13 @@ class Spot < ApplicationRecord
         .where(longitude: min_lng..max_lng)
   end
 
-  def self.search(query)
+  def self.search(word)
     matches = []
     Spot.all.each do |spot|
-      name = spot.name[0...query.length]
-      matches.push(spot) if name.downcase == query.downcase
+      name = spot.name[0...word.length]
+      matches.push(spot) if spot.name.downcase.match?(word)
     end
-    
+
     matches;
   end
 end

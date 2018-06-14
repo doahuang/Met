@@ -5,13 +5,14 @@ export default class Searchbar extends React.Component {
     super(props);
     this.state = this.props.input;
 
+    this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.searchLog = [];
   }
 
-  update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+  handleSearch(e) {
+    this.setState({query: e.currentTarget.value});
   }
 
   handleSubmit(e) {
@@ -20,25 +21,28 @@ export default class Searchbar extends React.Component {
       return null;
     }
 
-    this.props.fetchSpots({'query': {query: 't'}})
-      .then(this.logSearch())
-      .then(this.clear());
+    this.props.fetchSpots(this.state);
+    this.logSearch();
+    this.setState({query: ''});
   }
 
   handleClick(e) {
-    this.state.query = e.currentTarget.innerText;
-    return this.handleSubmit(e);
+    if (this.state.query !== e.currentTarget.innerText) {
+      this.state.query = e.currentTarget.innerText;
+      return this.props.fetchSpots(this.state);
+    }
   }
 
   logSearch() {
-    if (this.searchLog.length === 5) {
+    if (this.searchLog.length === 3) {
       this.searchLog.shift();
     }
-    this.searchLog.push(this.state);
+    return this.searchLog.push(this.state);
   }
 
   clear() {
-    this.setState({ query: '' });
+    this.state.query = '';
+    this.props.fetchSpots(this.state);
   }
 
   render() {
@@ -51,12 +55,14 @@ export default class Searchbar extends React.Component {
         <i className="fas fa-search"></i>
         <form onSubmit={this.handleSubmit}>
           <input placeholder='Try "Shire"' value={this.state.query}
-            onChange={this.update('query')} />
+            onChange={this.handleSearch} />
         </form>
-        <span onClick={() => this.clear()}>X</span>
         <div className='result-box'>
           <ul>
-            <h1>Recent Searches</h1>
+            <div>
+              <h1>Recent Searches</h1>
+              <p onClick={() => this.clear()}>Clear</p>
+            </div>
             { recentSearches }
           </ul>
         </div>

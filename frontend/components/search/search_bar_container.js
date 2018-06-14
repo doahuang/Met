@@ -8,7 +8,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-  fetchSpots: () => dispatch(fetchSpots())
+  fetchSpots: data => dispatch(fetchSpots(data))
 });
 
 export default connect(msp, mdp)(Searchbar);
