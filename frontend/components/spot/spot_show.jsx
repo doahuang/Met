@@ -31,7 +31,7 @@ export default class SpotShow extends React.Component {
     if (currentUser && currentUser.id == spot.ownerId) {
       return (
         <span>(<Link to={`/spots/${spot.id}/edit`}
-            className='edit'>Edit listing</Link>)</span>
+            className='edit'>Edit spot</Link>)</span>
       );
     }
   }

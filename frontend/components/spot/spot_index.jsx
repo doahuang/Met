@@ -11,7 +11,7 @@ export default class SpotIndex extends React.Component {
   render() {
     let { spots, reviews } = this.props;
     spots = spots.map(spot => {
-      
+
       let review = reviews.filter(el => el.spotId === spot.id);
       let rating = 0;
       review.forEach(el => rating += el.rating);
@@ -23,7 +23,6 @@ export default class SpotIndex extends React.Component {
 
     return (
       <div className='spot-index-container'>
-        <h2>Explore Middle-earth</h2>
         <ul className='spot-index'>{ spots }</ul>
       </div>
     );

@@ -1,5 +1,5 @@
 import * as APIUtil from '../utils/booking';
-import { receiveSessionErrors } from './session'; //to change
+import { receiveSessionErrors } from './session';
 
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
 export const RECEIVE_BOOKING = 'RECEIVE_BOOKING';

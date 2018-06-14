@@ -36,7 +36,12 @@ class Api::SpotsController < ApplicationController
 
   def index
     bounds = params[:bounds]
-    @spots = bounds ? Spot.in_bounds(bounds) : Spot.all
+    if bounds
+      @spots = Spot.in_bounds(bounds)
+    else
+      query = params[:query]
+      @spots = query ? Spot.search(query) : Spot.all
+    end
   end
 
   private

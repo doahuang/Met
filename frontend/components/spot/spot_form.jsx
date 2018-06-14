@@ -50,7 +50,7 @@ class SpotForm extends React.Component {
               <label htmlFor='name'>Name</label>
               <input id='name' onChange={this.update('name')} value={name} />
               <label htmlFor='image'>Image</label>
-              <input id='image' onChange={this.update('imageUrl')} value={imageUrl} />
+              <input id='image' onChange={this.update('imageUrl')} value={imageUrl} placeholder='URL here' />
               <label htmlFor='landscape'>Landscape</label>
               <input id='landscape' onChange={this.update('landscape')} value={landscape} />
               <div className='number-box'>

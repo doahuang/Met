@@ -25,9 +25,9 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.state.spotId = this.props.spot.id;
 
     if (this.props.currentUser) {
+      this.state.spotId = this.props.spot.id;
       this.props.submit(this.state).then(() => this.props.history.push('/bookings'));
     } else {
       this.props.history.push('/login');

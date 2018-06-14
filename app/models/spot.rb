@@ -17,8 +17,13 @@
 #
 
 class Spot < ApplicationRecord
-  include PgSearch
-  
+  # include PgSearch
+  # pg_search_scope :search,
+  #                 :against => [:name, :description],
+  #                 :ignoring => :accents,
+  #                 :using => {
+  #                   :tsearch => {:prefix => true}
+  #                 }
 
   validates :name, :latitude, :longitude, :landscape,
             :size, :price, :owner_id, presence: true
@@ -30,7 +35,7 @@ class Spot < ApplicationRecord
   has_many :reviewers, through: :reviews, source: :reviewer
 
   def location
-    'Somewhere'
+    %w(Lindon Eriador Gondor Rohan Mordor Rhûn Rhovanion).sample
   end
 
   def self.in_bounds(bounds)
@@ -41,5 +46,15 @@ class Spot < ApplicationRecord
 
     Spot.where(latitude: min_lat..max_lat)
         .where(longitude: min_lng..max_lng)
+  end
+
+  def self.search(query)
+    matches = []
+    Spot.all.each do |spot|
+      name = spot.name[0...query.length]
+      matches.push(spot) if name.downcase == query.downcase
+    end
+    
+    matches;
   end
 end

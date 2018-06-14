@@ -3,14 +3,9 @@
 .spot-index-container {
   color: $black;
 
-  h2 {
-    font-size: 25px;
-    margin: 35px 80px 0;
-  }
-
   .spot-index {
     display: grid;
-    margin: 10px 72px;
+    margin: 10px 72px 30px;
 
     .spot-index-item {
       list-style: none;
@@ -69,10 +64,6 @@
 
 @media screen and (max-width: 850px) {
   .spot-index-container {
-    h2 {
-      margin: 35px 30px 0;
-    }
-
     .spot-index {
       grid-template-columns: repeat(2, 1fr);
       margin: 10px 24px 50px;

@@ -6,11 +6,12 @@ import SpotMap from '../map/spot_map';
 const Search = ({ spots, reviews, fetchSpots, fetchReviews, updateBounds }) => {
   return (
     <div className='homepage'>
+      <h2>Explore Middle-earth</h2>
+      <SpotMap spots={spots} updateBounds={updateBounds} />
+      <h2>Spots around the world</h2>
       <SpotIndex
         spots={spots} reviews={reviews}
         fetchSpots={fetchSpots} fetchReviews={fetchReviews} />
-
-      <SpotMap spots={spots} updateBounds={updateBounds} />
     </div>
   );
 };
