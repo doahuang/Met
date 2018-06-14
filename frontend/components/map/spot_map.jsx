@@ -1,21 +1,24 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../utils/marker_manager';
 
-const sf = { lat: 37.7758, lng: -122.435 };
-
-export default class SpotMap extends React.Component {
+class SpotMap extends React.Component {
   componentDidMount() {
     const mapOptions = {
-      center: this.props.center || sf,
-      zoom: 12,
+      center: this.props.center,
+      zoom: this.props.zoom,
       mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
       },
-      clickableIcons: false
+      clickableIcons: false,
+      gestureHandling: this.props.pan
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager = new MarkerManager({
+      map: this.map,
+      draggable: this.props.draggable
+    });
 
     this.registerListeners();
     this.MarkerManager.updateMarkers(this.props.spots);
@@ -36,6 +39,7 @@ export default class SpotMap extends React.Component {
 
   registerListeners() {
     this.map.addListener('dragend', () => this.updateBounds());
+
   }
 
   render() {
@@ -48,3 +52,5 @@ export default class SpotMap extends React.Component {
     );
   }
 }
+
+export default withRouter(SpotMap);

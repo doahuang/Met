@@ -48,8 +48,7 @@ class Spot < ApplicationRecord
   end
 
   def self.search(word)
-    search_by_pg(word)
-    search_fixup(word)
+    search_by_pg(word) + search_fixup(word)
   end
 
   def self.search_fixup(word)

@@ -1,7 +1,8 @@
 export default class MarkerManager {
-  constructor(map) {
-    this.map = map;
+  constructor(props) {
+    this.map = props.map;
     this.markers = {};
+    this.draggable = props.draggable;
   }
 
   updateMarkers(spots) {
@@ -27,10 +28,16 @@ export default class MarkerManager {
     let marker = new google.maps.Marker({
       position,
       title: spot.name,
-      spotId: spot.id
+      spotId: spot.id,
+      draggable: this.draggable
     });
 
     marker.setMap(this.map);
     this.markers[marker.spotId] = marker;
+
+    google.maps.event.addListener(marker, 'dragend', () => {
+      let pos = marker.getPosition();
+      this.map.panTo(pos);
+    });
   }
 }

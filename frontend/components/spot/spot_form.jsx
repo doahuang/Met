@@ -30,6 +30,7 @@ class SpotForm extends React.Component {
       this.state.imageUrl = 'https://orig00.deviantart.net/36a7/f/2012/054/5/0/middle_earth_map_wallpaper_2_by_johnnyslowhand-d4qorml.jpg';
     }
     let url = id ? `/spots/${id}` : '/';
+
     this.props.submit(this.state).then(() => this.props.history.push(url));
   }
 
@@ -40,28 +41,10 @@ class SpotForm extends React.Component {
 
     let { name, imageUrl, landscape, size, price, description } = this.state;
     let { spot, updateBounds, errors } = this.props;
-    let latlng;
-    if (spot.latitude) {
-      latlng = new google.maps.LatLng(spot.latitude, spot.longitude);
-    }
-    debugger
+    let center = new google.maps.LatLng(spot.latitude, spot.longitude);
 
     return (
       <div className='spot-listing-container'>
-        <div className='spot-map-container'>
-          <div className='spot-map'>
-
-            <SpotMap spots={[spot]}
-              updateBounds={updateBounds}
-              center={latlng}/>
-
-            <div className='button-box'>
-              <button onClick={() => this.props.history.goBack()}>Back</button>
-              <button onClick={this.handleSubmit}>Looks good</button>
-            </div>
-            <div className='errors'> <RenderErrors errors={errors} /> </div>
-          </div>
-        </div>
         <div className='spot-form-box'>
           <h2>{this.props.formType}</h2>
           <form>
@@ -86,6 +69,23 @@ class SpotForm extends React.Component {
               <textarea id='description' onChange={this.update('description')} defaultValue={description} />
             </div>
           </form>
+        </div>
+        <div className='spot-map-container'>
+          <div className='spot-map'>
+
+            <SpotMap spots={[spot]}
+              updateBounds={updateBounds}
+              center={center}
+              zoom={6}
+              draggable={true}
+              pan='none' />
+
+            <div className='button-box'>
+              <button onClick={() => this.props.history.goBack()}>Back</button>
+              <button onClick={this.handleSubmit}>Looks good</button>
+            </div>
+            <div className='errors'> <RenderErrors errors={errors} /> </div>
+          </div>
         </div>
       </div>
     );

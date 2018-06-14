@@ -4,16 +4,6 @@ class Api::SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     @spot.owner_id = current_user.id
-
-    # to change
-    lat = 37.7758
-    lng = -122.435
-    lat += rand(-0.03..0.03).round(4)
-    lng += rand(-0.03..0.03).round(4)
-    @spot.latitude = lat
-    @spot.longitude = lng
-    #
-
     if @spot.save
       render :show
     else
@@ -35,7 +25,6 @@ class Api::SpotsController < ApplicationController
   end
 
   def index
-    bounds = params[:bounds]
     if bounds
       @spots = Spot.in_bounds(bounds)
     else
@@ -50,5 +39,9 @@ class Api::SpotsController < ApplicationController
       :name, :image_url, :latitude, :longitude,
       :landscape, :size, :price, :description
     )
+  end
+
+  def bounds
+    params[:bounds]
   end
 end

@@ -20,5 +20,7 @@ const payload = spot => ({
   landscape: spot.landscape,
   size: spot.size,
   price: spot.price,
-  description: spot.description
+  description: spot.description,
+  latitude: spot.latitude,
+  longitude: spot.longitude
 });

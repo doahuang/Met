@@ -6,7 +6,8 @@ import { updateBounds } from '../../actions/filter';
 import SpotForm from './spot_form';
 
 const _newSpot = {
-  name: '', imageUrl: '', landscape: '', size: '', price: '', description: ''
+  name: '', imageUrl: '', landscape: '', size: '', price: '', description: '',
+  latitude: 37.7758, longitude: -122.435
 }
 
 const msp = ({ errors }) => ({
