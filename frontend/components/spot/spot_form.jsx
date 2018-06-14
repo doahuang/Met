@@ -24,7 +24,12 @@ class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     let id = this.state.id;
+    if (!this.state.imageUrl) {
+      // http://www.totalwar.thilisar.cz/taimg/map.png
+      this.state.imageUrl = 'https://orig00.deviantart.net/36a7/f/2012/054/5/0/middle_earth_map_wallpaper_2_by_johnnyslowhand-d4qorml.jpg';
+    }
     let url = id ? `/spots/${id}` : '/';
     this.props.submit(this.state).then(() => this.props.history.push(url));
   }

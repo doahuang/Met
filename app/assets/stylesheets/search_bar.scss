@@ -1,6 +1,7 @@
 @import 'colors';
 
 .search-bar {
+  position: relative;
   display: flex;
   color: $black;
   width: 460px;
@@ -11,14 +12,61 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+  &:hover .result-box {
+    display: block;
+  }
+
+  .result-box {
+    border: 1px solid $lightgrey;
+    border-radius: 4px;
+    background: white;
+    position: absolute;
+    top: 47px;
+    left: -1px;
+    width: 100%;
+    display: none;
+
+    ul {
+      display: block;
+      padding: 30px 35px 15px;
+
+      h1 {
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
+
+      li {
+        display: block;
+        margin: 5px 0;
+        height: 50px;
+
+        &:hover {
+          background-color: $lightblue;
+        }
+      }
+    }
+  }
+
   i {
     padding: 15px 20px;
   }
 
-  input {
-    width: 84%;
-    font-size: 16px;
-    line-height: 22px;
-    border: none;
+  form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      font-size: 16px;
+      line-height: 22px;
+      border: none;
+    }
+  }
+
+  span {
+    padding: 13px;
+    cursor: pointer;
+    color: grey;
   }
 }
