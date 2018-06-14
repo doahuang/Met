@@ -17,13 +17,12 @@
 #
 
 class Spot < ApplicationRecord
-  # include PgSearch
-  # pg_search_scope :search,
-  #                 :against => [:name, :description],
-  #                 :ignoring => :accents,
-  #                 :using => {
-  #                   :tsearch => {:prefix => true}
-  #                 }
+  include PgSearch
+  pg_search_scope :search_by_pg,
+                  :against => [:name, :landscape, :size, :price],
+                  :using => {
+                    :tsearch => {:prefix => true, :any_word => true}
+                  }
 
   validates :name, :latitude, :longitude, :landscape,
             :size, :price, :owner_id, presence: true
@@ -49,12 +48,17 @@ class Spot < ApplicationRecord
   end
 
   def self.search(word)
+    search_by_pg(word)
+    search_fixup(word)
+  end
+
+  def self.search_fixup(word)
     matches = []
     Spot.all.each do |spot|
-      name = spot.name[0...word.length]
-      matches.push(spot) if spot.name.downcase.match?(word)
+      if [spot.name, spot.landscape].any?{ |el| el.downcase.match?(word.downcase) }
+        matches << spot
+      end
     end
-
     matches;
   end
 end
