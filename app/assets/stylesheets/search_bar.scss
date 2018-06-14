@@ -36,9 +36,11 @@
       }
 
       li {
-        display: block;
+        display: flex;
+        align-items: center;
         margin: 5px 0;
         height: 50px;
+        cursor: pointer;
 
         &:hover {
           background-color: $lightblue;

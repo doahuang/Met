@@ -17,6 +17,9 @@
 #
 
 class Spot < ApplicationRecord
+  include PgSearch
+  
+
   validates :name, :latitude, :longitude, :landscape,
             :size, :price, :owner_id, presence: true
 
@@ -36,8 +39,7 @@ class Spot < ApplicationRecord
     min_lng = bounds['southWest']['lng']
     max_lng = bounds['northEast']['lng']
 
-    Spot
-      .where(latitude: min_lat..max_lat)
-      .where(longitude: min_lng..max_lng)
+    Spot.where(latitude: min_lat..max_lat)
+        .where(longitude: min_lng..max_lng)
   end
 end

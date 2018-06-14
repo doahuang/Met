@@ -3,7 +3,10 @@ import MarkerManager from '../../utils/marker_manager';
 
 const mapOptions = {
   center: { lat: 37.7758, lng: -122.435 }, // this is SF
-  zoom: 12
+  zoom: 12,
+  mapTypeControlOptions: {
+    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+  }
 };
 
 export default class SpotMap extends React.Component {

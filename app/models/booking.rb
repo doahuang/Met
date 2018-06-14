@@ -21,7 +21,7 @@ class Booking < ApplicationRecord
   belongs_to :spot
 
   def valid_dates
-    return if begin_date < end_date && begin_date >= Date.today
+    return if begin_date < end_date #&& begin_date >= Date.today
     errors[:base] << 'Invalid date range'
   end
 end

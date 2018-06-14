@@ -33,10 +33,10 @@ export default class Searchbar extends React.Component {
         <div className='result-box'>
           <ul>
             <h1>Recent Searches</h1>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>something</li>
+            <li>something</li>
+            <li>something</li>
+            <li>something</li>
           </ul>
         </div>
       </div>
