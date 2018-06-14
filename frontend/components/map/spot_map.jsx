@@ -6,7 +6,8 @@ const mapOptions = {
   zoom: 12,
   mapTypeControlOptions: {
     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-  }
+  },
+  clickableIcons: false
 };
 
 export default class SpotMap extends React.Component {

@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 
-import { createSpot } from '../../actions/spot';
+import { createSpot, fetchSpots } from '../../actions/spot';
 import { clear } from '../../actions/session';
+import { updateBounds } from '../../actions/filter';
 import SpotForm from './spot_form';
 
 const _newSpot = {
@@ -16,7 +17,9 @@ const msp = ({ errors }) => ({
 
 const mdp = dispatch => ({
   submit: spot => dispatch(createSpot(spot)),
-  clear: () => dispatch(clear())
+  clear: () => dispatch(clear()),
+  fetchSpots: data => dispatch(fetchSpots(data)),
+  updateBounds: bounds => dispatch(updateBounds(bounds))
 });
 
 export default connect(msp, mdp)(SpotForm);

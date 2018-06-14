@@ -26,8 +26,7 @@ class SpotForm extends React.Component {
     e.preventDefault();
 
     let id = this.state.id;
-    if (!this.state.imageUrl) {
-      // http://www.totalwar.thilisar.cz/taimg/map.png
+    if (!this.state.imageUrl) { // http://www.totalwar.thilisar.cz/taimg/map.png
       this.state.imageUrl = 'https://orig00.deviantart.net/36a7/f/2012/054/5/0/middle_earth_map_wallpaper_2_by_johnnyslowhand-d4qorml.jpg';
     }
     let url = id ? `/spots/${id}` : '/';
@@ -43,6 +42,19 @@ class SpotForm extends React.Component {
 
     return (
       <div className='spot-listing-container'>
+        <div className='spot-map-container'>
+          <div className='spot-map'>
+
+            <SpotMap spots={[this.props.spot]}
+              updateBounds={this.props.updateBounds} />
+
+            <div className='button-box'>
+              <button onClick={() => this.props.history.goBack()}>Back</button>
+              <button onClick={this.handleSubmit}>Looks good</button>
+            </div>
+            <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
+          </div>
+        </div>
         <div className='spot-form-box'>
           <h2>{this.props.formType}</h2>
           <form>
@@ -67,19 +79,6 @@ class SpotForm extends React.Component {
               <textarea id='description' onChange={this.update('description')} defaultValue={description} />
             </div>
           </form>
-        </div>
-
-        <div className='spot-map-container'>
-          <div className='spot-map'>
-
-            <SpotMap spots={[]} updateBounds={null} />
-
-            <div className='button-box'>
-              <button onClick={() => this.props.history.goBack()}>Back</button>
-              <button onClick={this.handleSubmit}>Looks good</button>
-            </div>
-            <div className='errors'> <RenderErrors errors={this.props.errors} /> </div>
-          </div>
         </div>
       </div>
     );

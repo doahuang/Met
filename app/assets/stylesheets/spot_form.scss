@@ -3,6 +3,7 @@
 .spot-listing-container {
   color: $black;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   padding: 35px 80px;
 
@@ -15,8 +16,11 @@
       top: 100px;
 
       .map-container {
-        width: 400px;
-        height: 300px;
+        #map-container {
+          border-radius: 4px;
+          width: 400px;
+          height: 300px;
+        }
       }
 
       .button-box {
