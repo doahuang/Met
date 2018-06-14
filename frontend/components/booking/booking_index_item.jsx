@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import StarRating from '../star_rating';
+
+const drawDate = date => new Date(date).toDateString().slice(4);
 
 const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
   let guests = booking.guests;
-  let guestsSum = guests > 1 ? `${guests} guests` : `${guests} guest`;
+  guests = guests > 1 ? `${guests} guests` : `${guests} guest`;
+  let beginDate = drawDate(booking.beginDate);
+  let endDate = drawDate(booking.endDate);
+  if (beginDate.slice(-4) === endDate.slice(-4)) {
+    beginDate = beginDate.slice(0, -4);
+  }
 
   let review = reviews.filter(el => el.spotId === booking.spotId);
   let rating = 0;
   review.forEach(el => rating += el.rating);
   rating = rating / review.length || 0;
+
 
   return (
     <li className='booking-index-item'>
@@ -20,8 +27,8 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
       </div>
       <div className='booking-info'>
         <h1><Link className='spot-name' to={url}>{spot.name}</Link></h1>
-        <p>{booking.beginDate} ~ {booking.endDate}</p>
-        <p>{guestsSum}</p>
+        <p>{beginDate} - {endDate}</p>
+        <p>{guests}</p>
         <p className='spot-loc'>{spot.location}</p>
 
         <StarRating rating={rating} />
