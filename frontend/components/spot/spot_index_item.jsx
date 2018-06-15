@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import StarRating from '../star_rating';
+import StarRating from '../shared/star_rating';
 
 const SpotIndexItem = ({ spot, reviewCount, avgRating }) => {
   let url = `/spots/${spot.id}`;

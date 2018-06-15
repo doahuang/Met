@@ -21,9 +21,9 @@ export default class Searchbar extends React.Component {
       return null;
     }
 
-    this.props.fetchSpots(this.state);
-    this.logSearch();
-    this.setState({query: ''});
+    this.props.fetchSpots(this.state)
+      .then(() => this.logSearch())
+      .then(() => this.setState({query: ''}));
   }
 
   handleClick(e) {
@@ -42,6 +42,7 @@ export default class Searchbar extends React.Component {
 
   clear() {
     this.state.query = '';
+    this.searchLog = [];
     this.props.fetchSpots(this.state);
   }
 

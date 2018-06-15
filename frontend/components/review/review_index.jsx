@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReviewIndexItem from './review_index_item';
 import CreateReviewContainer from './create_review_container';
-import StarRating from '../star_rating';
+import StarRating from '../shared/star_rating';
 
 export default class ReviewIndex extends React.Component {
   render() {

@@ -3,7 +3,7 @@ import { withRouter, Link, Redirect } from 'react-router-dom';
 
 import SpotMap from '../map/spot_map';
 import { updateBounds } from '../../actions/filter';
-import Errors from '../errors';
+import Errors from '../shared/errors';
 
 class SpotForm extends React.Component {
   constructor(props) {

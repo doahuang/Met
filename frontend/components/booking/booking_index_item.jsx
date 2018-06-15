@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StarRating from '../star_rating';
+import StarRating from '../shared/star_rating';
 
 const drawDate = date => new Date(date).toDateString().slice(4);
 

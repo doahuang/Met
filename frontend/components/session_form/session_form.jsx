@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Errors from '../errors';
+import Errors from '../shared/errors';
 
 export default class SessionForm extends React.Component {
   constructor(props) {

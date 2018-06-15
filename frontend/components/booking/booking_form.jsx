@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 // import 'react-dates/initialize';
 // import { DateRangePicker } from 'react-dates';
 
-import Errors from '../errors';
+import Errors from '../shared/errors';
 
 class BookingForm extends React.Component {
   constructor(props) {

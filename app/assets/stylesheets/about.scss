@@ -1,0 +1,38 @@
+@import 'colors';
+
+.about {
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $black;
+
+  h1 {
+    font-size: 60px;
+    padding: 20px;
+  }
+
+  .links {
+    font-size: 30px;
+
+    i {
+      padding: 10px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px;
+    }
+
+    div {
+      &:hover {
+        background-color: $lightblue;
+      }
+
+      &:active {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+}

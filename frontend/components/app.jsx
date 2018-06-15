@@ -5,13 +5,13 @@ import { AuthRoute, ProtectedRoute } from '../utils/route';
 import Header from './header/header';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-// import SpotIndexContainer from './spot/spot_index_container';
 import SearchContainer from './search/search_container';
 import SpotShowContainer from './spot/spot_show_container';
 import CreateSpotFormContainer from './spot/create_spot_form_container';
 import EditSpotFormContainer from './spot/edit_spot_form_container';
 import BookingIndexContainer from './booking/booking_index_container';
-import NotFound from './not_found';
+import NotFound from './shared/not_found';
+import AboutMe from './about_me';
 
 const App = () => (
   <div>
@@ -25,6 +25,7 @@ const App = () => (
       <ProtectedRoute path='/spots/:spotId/edit' component={EditSpotFormContainer} />
       <Route path='/spots/:spotId' component={SpotShowContainer} />
       <Redirect from='/spots' to='/' />
+      <Route path='/help' render={AboutMe} />
       <Route to='/404' render={NotFound} />
     </Switch>
     <div className='screen'></div>
