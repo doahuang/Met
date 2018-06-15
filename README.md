@@ -1,25 +1,100 @@
 # Met
 
-+ [Live](https://met-app.herokuapp.com/#/)
+![Met](https://github.com/doahuang/Met/blob/master/public/met_logo.png?raw=true)
 
-+ [Wiki](../../wiki)
+Met, Middle-earth travel. Built with React/Redux.
 
-Things you may want to cover:
+__[Live](https://met-app.herokuapp.com/#/)__
 
-* Ruby version
+__[Wiki](../../wiki)__
 
-* System dependencies
+## Table of Contents
 
-* Configuration
++ [Introduction](#Introduction)
++ [Features](#Features)
++ [Technologies](#Technologies)
++ [Challenges](#Challenges)
++ [Code snippets](#Code snippets)
++ [Acknowledgments](#Acknowledgments)
 
-* Database creation
+## Introduction
 
-* Database initialization
+Met, aka Middle-earth travel, is a clone of Airbnb.
 
-* How to run the test suite
+It is a travel booking website built with React/Redux that allows users to browse, book, and review best places to visit in the Middle-earth.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Features
 
-* Deployment instructions
+A few of the things you can do with Met:
 
-* ...
++ View all spots and individual spot listing
++ Create and edit your spot listing
++ Create bookings to the spot
++ View and delete your bookings
++ Add and delete your reviews on the spot
++ Search by spot name, location, landscape, size, price
++ Filter by map bounds
++ Mobile responsive design
+
+## Technologies
+
++ [React](https://reactjs.org/)
++ [Redux](https://redux.js.org/)
++ [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
++ [PgSearch](https://github.com/Casecommons/pg_search)
++ [React Rating](https://www.npmjs.com/package/react-rating)
+
+## Challenges
+
+#### Google Maps and markers
+
+To create or edit a booking, the user will drag and drop the marker on the map to pin or adjust the spot.
+
+As the map component is independent of other representational parts, I pass a callback to marker and invoke it to close over the spot and marker's coordinates in 'dragend' event listener, then update spot's latitude and longitude by the coordinates.
+
+#### Mobile responsive design
+
+To enable smooth transition and responsive design, I apply multiple media rules to render layouts by viewport and resolution for different devices.
+
+## Code snippets
+
+```javascript
+componentDidMount() {
+  let { center, zoom, gestureHandling, draggable, spots } = this.props;
+
+  const mapOptions = {
+    center,
+    zoom,
+    gestureHandling,
+    clickableIcons: false
+  };
+
+  this.map = new google.maps.Map(this.refs.map, mapOptions);
+  this.MarkerManager = new MarkerManager({
+    map: this.map,
+    draggable,
+    handleMarkerDrag: this.handleMarkerDrag.bind(this)
+  });
+
+  this.registerListeners();
+  this.MarkerManager.updateMarkers(spots);
+}
+```
+
+```javascript
+updateMarkers(spots) {
+  const spotsObj = {};
+  spots.forEach(spot => spotsObj[spot.id] = spot);
+
+  spots.filter(spot => !this.markers[spot.id])
+    .forEach(spot => this.createMarkerFromSpot(spot));
+
+  Object.values(this.markers)
+    .filter(marker => !spotsObj[marker.spotId])
+    .forEach(marker => this.removeMarker(marker));
+}
+```
+
+## Acknowledgments
+
+Thanks to [@niartenyaw]() [@mwojick]() [@cjthom03]() [@ThinkSalat]() for help during the project.

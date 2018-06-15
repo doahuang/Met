@@ -8,14 +8,14 @@ export default class MarkerManager {
   }
 
   updateMarkers(spots) {
-    const pojoSpots = {};
-    spots.forEach(spot => pojoSpots[spot.id] = spot);
+    const spotsObj = {};
+    spots.forEach(spot => spotsObj[spot.id] = spot);
 
     spots.filter(spot => !this.markers[spot.id])
       .forEach(spot => this.createMarkerFromSpot(spot));
 
     Object.values(this.markers)
-      .filter(marker => !pojoSpots[marker.spotId])
+      .filter(marker => !spotsObj[marker.spotId])
       .forEach(marker => this.removeMarker(marker));
   }
 

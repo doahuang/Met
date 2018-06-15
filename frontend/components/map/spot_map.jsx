@@ -44,9 +44,9 @@ class SpotMap extends React.Component {
     this.props.updateBounds(bounds);
   }
 
-  handleMarkerDrag(spot, pos) {
-    spot.latitude = pos.lat();
-    spot.longitude = pos.lng();
+  handleMarkerDrag(spot, position) {
+    spot.latitude = position.lat();
+    spot.longitude = position.lng();
   }
 
   render() {
