@@ -41,22 +41,29 @@
     border-bottom: 1px solid $lightgrey;
 
     .create-review-form {
-      div {
-        padding: 10px;
-      }
-
       .rating {
-        padding-bottom: 0;
+        padding: 5px 0;
+        font-size: 20px;
+
+        p {
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        div {
+          display: inline-block;
+          color: $blue;
+
+          span {
+            padding: 0 1px;
+          }
+        }
       }
 
       label {
         margin-right: 5px;
         color: $blue;
         font-size: 18px;
-      }
-
-      span {
-        margin-right: 10px;
       }
 
       .review-body-box {

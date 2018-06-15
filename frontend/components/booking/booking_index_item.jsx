@@ -30,9 +30,7 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
         <p>{startDate} - {endDate}</p>
         <p>{guests}</p>
         <p className='spot-loc'>{spot.location}</p>
-
         <StarRating rating={rating} />
-
         <div><Link to={url}>Read Your Review</Link></div>
         <div>
           <Link to={'/bookings'}

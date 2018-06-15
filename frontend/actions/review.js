@@ -14,8 +14,7 @@ export const fetchReviews = () => dispatch => {
 }
 
 export const createReview = review => dispatch => {
-  return APIUtil.createReview(review).then(review => dispatch(receiveReview(review)),
-    err => dispatch(receiveSessionErrors(err.responseJSON)));
+  return APIUtil.createReview(review).then(review => dispatch(receiveReview(review)));
 }
 
 export const deleteReview = id => dispatch => {

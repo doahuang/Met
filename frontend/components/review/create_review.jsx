@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Rating from 'react-rating';
 
 class CreateReview extends React.Component {
   constructor(props) {
@@ -18,18 +19,8 @@ class CreateReview extends React.Component {
 
     this.state.spotId = this.props.spot.id;
     this.props.submit(this.state)
-      .then(() => this.setState({ rating: null, body: ''}));
-  }
-
-  drawRadioButton(id, value) {
-    return (
-      <span>
-        <input id={id} type='radio' value={value}
-          onChange={this.update('rating')}
-          checked={this.state.rating === value} />
-        <label htmlFor={id}> {value}⭑</label>
-      </span>
-    );
+      .then(() => this.setState({ rating: null, body: ''}))
+      .then(this.props.clear());
   }
 
   render() {
@@ -41,12 +32,14 @@ class CreateReview extends React.Component {
       <div className='create-review-box'>
         <form className='create-review-form'>
           <div className='rating'>
-            <span>Rating</span>
-            { this.drawRadioButton('1', '1') }
-            { this.drawRadioButton('2', '2') }
-            { this.drawRadioButton('3', '3') }
-            { this.drawRadioButton('4', '4') }
-            { this.drawRadioButton('5', '5') }
+            <p>Rating</p>
+            <div>
+              <Rating
+                onChange={rating => this.state.rating = rating }
+                emptySymbol="far fa-star"
+                fullSymbol="fas fa-star"
+              />
+            </div>
           </div>
           <div className='review-body-box'>
             <textarea value={this.state.body}
