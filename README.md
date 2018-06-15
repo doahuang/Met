@@ -1,6 +1,6 @@
 # Met
 
-![Met](https://github.com/doahuang/Met/blob/master/public/met_logo.png?raw=true)
+![Met](https://raw.githubusercontent.com/doahuang/Met/master/public/met_logo.png)
 
 Met, Middle-earth travel. Built with React/Redux.
 
@@ -10,12 +10,12 @@ __[Wiki](../../wiki)__
 
 ## Table of Contents
 
-+ [Introduction](#Introduction)
-+ [Features](#Features)
-+ [Technologies](#Technologies)
-+ [Challenges](#Challenges)
-+ [Code snippets](#Code snippets)
-+ [Acknowledgments](#Acknowledgments)
++ [Introduction](#introduction)
++ [Features](#features)
++ [Technologies](#technologies)
++ [Challenges](#challenges)
++ [Code snippets](#code-snippets)
++ [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
@@ -27,12 +27,11 @@ It is a travel booking website built with React/Redux that allows users to brows
 
 A few of the things you can do with Met:
 
-+ View all spots and individual spot listing
++ View all spots and single spot listing
 + Create and edit your spot listing
-+ Create bookings to the spot
-+ View and delete your bookings
-+ Add and delete your reviews on the spot
-+ Search by spot name, location, landscape, size, price
++ Create, view, and delete your bookings
++ Add and delete your reviews
++ Search by spot name, location, landscape, etc.
 + Filter by map bounds
 + Mobile responsive design
 
@@ -97,4 +96,4 @@ updateMarkers(spots) {
 
 ## Acknowledgments
 
-Thanks to [@niartenyaw]() [@mwojick]() [@cjthom03]() [@ThinkSalat]() for help during the project.
+Thanks to [@niartenyaw](https://github.com/niartenyaw) [@mwojick](https://github.com/mwojick) [@cjthom03](https://github.com/cjthom03) [@ThinkSalat](https://github.com/ThinkSalat) for help during the project.
