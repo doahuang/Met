@@ -20,14 +20,16 @@ ActiveRecord::Base.transaction do
 
   photos = [980, 984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991]
   24.times do
-    loc = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
+    name = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
+    loc = %w(Lindon Eriador Gondor Rohan Mordor Rhûn Rhovanion).sample
     geo = %w(Volcano Valley Castle Mountain Flatland River Forest).sample
     des = rand(1..5).times.map{ Faker::Hobbit.quote }.join(' ')
     Spot.create!(
-      name: loc,
+      name: name,
       image_url: "https://picsum.photos/1600/900/?image=#{photos.sample}",
-      latitude: rand(-90.0..90.0).round(4),
-      longitude: rand(-180.0..180.0).round(4),
+      location: loc,
+      latitude: rand(-90.0..90.0),
+      longitude: rand(-180.0..180.0),
       landscape: geo,
       size: rand(1..100),
       price: rand(1..10000),
@@ -37,10 +39,10 @@ ActiveRecord::Base.transaction do
   end
 
   24.times do
-    begin_date = Date.new(2018, rand(1..12), rand(1..28))
+    start_date = Date.new(2018, rand(1..12), rand(1..28))
     Booking.create!(
-      begin_date: begin_date,
-      end_date: begin_date + rand(1..365),
+      start_date: start_date,
+      end_date: start_date + rand(1..365),
       guests: rand(1..10),
       booker_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)
@@ -49,7 +51,7 @@ ActiveRecord::Base.transaction do
 
   48.times do
     Review.create!(
-      rating: rand(1..5),
+      rating: rand(1..3),
       body: Faker::Hobbit.quote,
       reviewer_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)

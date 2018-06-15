@@ -8,10 +8,10 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
   let url = `/spots/${booking.spotId}`;
   let guests = booking.guests;
   guests = guests > 1 ? `${guests} guests` : `${guests} guest`;
-  let beginDate = drawDate(booking.beginDate);
+  let startDate = drawDate(booking.startDate);
   let endDate = drawDate(booking.endDate);
-  if (beginDate.slice(-4) === endDate.slice(-4)) {
-    beginDate = beginDate.slice(0, -4);
+  if (startDate.slice(-4) === endDate.slice(-4)) {
+    startDate = startDate.slice(0, -4);
   }
 
   let review = reviews.filter(el => el.spotId === booking.spotId);
@@ -27,7 +27,7 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
       </div>
       <div className='booking-info'>
         <h1><Link className='spot-name' to={url}>{spot.name}</Link></h1>
-        <p>{beginDate} - {endDate}</p>
+        <p>{startDate} - {endDate}</p>
         <p>{guests}</p>
         <p className='spot-loc'>{spot.location}</p>
 

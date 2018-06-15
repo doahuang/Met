@@ -17,6 +17,7 @@ export const updateSpot = spot => $.ajax({
 const payload = spot => ({
   name: spot.name,
   image_url: spot.imageUrl,
+  location: spot.location,
   landscape: spot.landscape,
   size: spot.size,
   price: spot.price,

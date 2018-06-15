@@ -4,8 +4,7 @@ export default class MarkerManager {
     this.draggable = props.draggable;
     this.markers = {};
 
-    this.handleClick = props.handleClick;
-    this.handleDrag = props.handleDrag;
+    this.handleMarkerDrag = props.handleMarkerDrag;
   }
 
   updateMarkers(spots) {
@@ -40,12 +39,10 @@ export default class MarkerManager {
     marker.setMap(this.map);
     this.markers[marker.spotId] = marker;
 
-    // marker.addListener('click', () => this.handleClick(spot));
-    // marker.addListener('dragend', () => this.handleDrag(spot));
-
-    google.maps.event.addListener(marker, 'dragend', () => {
+    marker.addListener('dragend', () => {
       let pos = marker.getPosition();
       this.map.panTo(pos);
+      return this.handleMarkerDrag(spot, pos);
     });
   }
 }

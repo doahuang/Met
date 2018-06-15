@@ -12,7 +12,7 @@ export const deleteBooking = id => $.ajax({
 });
 
 const payload = booking => ({
-  begin_date: booking.beginDate,
+  start_date: booking.startDate,
   end_date: booking.endDate,
   guests: booking.guests,
   booker_id: booking.bookerId,

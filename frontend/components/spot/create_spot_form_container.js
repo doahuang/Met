@@ -20,5 +20,5 @@ export default connect(msp, mdp)(SpotForm);
 const _newSpot = {
   name: '', landscape: '', size: '', price: '', description: '',
   imageUrl: 'https://goo.gl/5PV5jz',
-  latitude: '', longitude: ''
+  latitude: 0, longitude: 0
 }

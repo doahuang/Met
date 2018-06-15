@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 
 import SpotMap from '../map/spot_map';
+import { updateBounds } from '../../actions/filter';
 import Errors from '../errors';
 
 class SpotForm extends React.Component {
@@ -42,10 +43,11 @@ class SpotForm extends React.Component {
       return <Redirect to='/404' />;
     }
 
-    let { name, imageUrl, landscape, size, price, description } = this.state;
+    let { name, imageUrl, location, landscape,
+          size, price, description } = this.state;
     let { spot, updateBounds, errors } = this.props;
     let center = new google.maps.LatLng(spot.latitude, spot.longitude);
-    let zoom = spot.name ? 12 : 2;
+    let zoom = 2;
 
     return (
       <div className='spot-listing-container'>
@@ -60,6 +62,10 @@ class SpotForm extends React.Component {
               <input id='image' onChange={this.update('imageUrl')}
                 value={imageUrl} placeholder='URL here' />
 
+              <label htmlFor='location'>Location</label>
+              <input id='location' onChange={this.update('location')}
+                value={location} />
+
               <label htmlFor='landscape'>Landscape</label>
               <input id='landscape' onChange={this.update('landscape')}
                 value={landscape} />
@@ -67,12 +73,12 @@ class SpotForm extends React.Component {
               <div className='number-box'>
                 <div>
                   <label htmlFor='size'>Size</label>
-                  <input id='size' type='number'
+                  <input id='size' type='number' min='1'
                     onChange={this.update('size')} value={size} />
                 </div>
                 <div>
                   <label htmlFor='price'>Price</label>
-                  <input id='price' type='number'
+                  <input id='price' type='number' min='0'
                     onChange={this.update('price')} value={price} />
                 </div>
               </div>
@@ -94,14 +100,16 @@ class SpotForm extends React.Component {
               gestureHandling='none'
               draggable={true} />
 
+            <div className='tip'>
+              * You can drag the pin to adjust its location
+            </div>
+
             <div className='button-box'>
               <button onClick={this.goBack}>Back</button>
               <button onClick={this.handleSubmit}>Looks good</button>
             </div>
 
-            <div className='errors'>
-              <Errors errors={errors} />
-            </div>
+            <Errors errors={errors} />
           </div>
         </div>
       </div>

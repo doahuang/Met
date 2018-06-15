@@ -1,3 +1,3 @@
-json.extract! spot, :id, :name, :image_url, :latitude, :longitude,
-                    :location, :landscape, :size, :price,
-                    :description, :owner_id
+json.extract! spot, :id, :name, :image_url, :location,
+                    :latitude, :longitude, :landscape,
+                    :size, :price, :description, :owner_id

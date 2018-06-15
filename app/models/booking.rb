@@ -3,7 +3,7 @@
 # Table name: bookings
 #
 #  id         :bigint(8)        not null, primary key
-#  begin_date :date             not null
+#  start_date :date             not null
 #  end_date   :date             not null
 #  guests     :integer          not null
 #  booker_id  :integer          not null
@@ -13,16 +13,16 @@
 #
 
 class Booking < ApplicationRecord
-  validates :begin_date, :end_date, :guests,
+  validates :start_date, :end_date, :guests,
             :booker_id, :spot_id, presence: true
-  validate :valid_dates
+  validate :date_range
 
   belongs_to :booker, class_name: :User
   belongs_to :spot
 
-  def valid_dates
-    return if !begin_date || !end_date
-    return if begin_date < end_date && begin_date >= Date.today
+  def date_range
+    return if !start_date || !end_date
+    return if start_date < end_date && start_date >= Date.today
     errors[:base] << 'Invalid date range'
   end
 end

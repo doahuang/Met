@@ -14,6 +14,10 @@
       position: -webkit-sticky;
       top: 100px;
 
+      .tip {
+        margin: 20px 0 10px;
+      }
+
       .map-container {
         #map {
           border-radius: 4px;
@@ -46,11 +50,8 @@
       }
 
       .errors {
-        color: $red;
-
-        ul {
-          list-style: none;
-        }
+        position: absolute;
+        list-style: none;
       }
     }
   }
@@ -104,7 +105,7 @@
       }
 
       textarea {
-        height: 200px;
+        height: 150px;
         resize: none;
       }
     }

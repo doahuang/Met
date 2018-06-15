@@ -49,8 +49,8 @@ class BookingForm extends React.Component {
       <div className='booking-form-container'>
         <div className='booking-date-calendar'>
           <label>Start Date</label>
-          <input type='date' value={this.state.beginDate}
-            min={todayDate} onChange={this.update('beginDate')} />
+          <input type='date' value={this.state.startDate}
+            min={todayDate} onChange={this.update('startDate')} />
           <label>End Date</label>
           <input type='date' value={this.state.endDate}
             min={todayDate} onChange={this.update('endDate')} />

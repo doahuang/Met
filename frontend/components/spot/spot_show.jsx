@@ -5,6 +5,7 @@ import SpotBanner from './spot_banner';
 import ReviewIndexContainer from '../review/review_index_container';
 import CreateBookingContainer from '../booking/create_booking_container';
 import StarRating from '../star_rating';
+import SpotMap from '../map/spot_map';
 
 export default class SpotShow extends React.Component {
   componentDidMount() {
@@ -47,6 +48,9 @@ export default class SpotShow extends React.Component {
     review.forEach(el => rating += el.rating);
     rating = rating / review.length || 0;
 
+    let center = new google.maps.LatLng(spot.latitude, spot.longitude);
+    let zoom = 2;
+
     return (
       <div className='spot-show-container'>
 
@@ -64,6 +68,12 @@ export default class SpotShow extends React.Component {
 
             <ReviewIndexContainer spot={spot} reviews={review}
               currentUser={currentUser} rating={rating} />
+
+            <SpotMap spots={[spot]}
+              updateBounds={() => {}}
+              center={center}
+              zoom={zoom}
+              gestureHandling='none' />
           </div>
 
           <div className='spot-show-booking'>

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_220542) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.date "begin_date", null: false
+    t.date "start_date", null: false
     t.date "end_date", null: false
     t.integer "guests", null: false
     t.integer "booker_id", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_220542) do
     t.datetime "updated_at", null: false
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
     t.index ["spot_id"], name: "index_bookings_on_spot_id"
+    t.index ["start_date", "end_date"], name: "index_bookings_on_start_date_and_end_date"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -40,7 +41,8 @@ ActiveRecord::Schema.define(version: 2018_06_05_220542) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name", null: false
-    t.string "image_url"
+    t.string "image_url", null: false
+    t.string "location", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.string "landscape", null: false
