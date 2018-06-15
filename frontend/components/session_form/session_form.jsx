@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import RenderErrors from '../errors';
+import Errors from '../errors';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class SessionForm extends React.Component {
             <input type='password' placeholder='Password'
               value={password} onChange={this.update('password')} />
 
-            <div className='errors'> <RenderErrors errors={errors} /> </div>
+            <div className='errors'> <Errors errors={errors} /> </div>
 
             <button onClick={this.handleSubmit}>{formType}</button>
           </form>

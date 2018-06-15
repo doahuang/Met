@@ -5,12 +5,10 @@ import { fetchReviews } from '../../actions/review';
 import { updateBounds } from '../../actions/filter';
 import Search from './search';
 
-const msp = ({ entities }) => {
-  return {
-    spots: Object.values(entities.spots),
-    reviews: Object.values(entities.reviews)
-  };
-};
+const msp = ({ entities }) => ({
+  spots: Object.values(entities.spots),
+  reviews: Object.values(entities.reviews)
+});
 
 const mdp = dispatch => ({
   fetchSpots: () => dispatch(fetchSpots()),

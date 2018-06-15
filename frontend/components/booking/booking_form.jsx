@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 // import 'react-dates/initialize';
 // import { DateRangePicker } from 'react-dates';
 
-import RenderErrors from '../errors';
+import Errors from '../errors';
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class BookingForm extends React.Component {
           <label>Guests</label>
           <select onChange={this.update('guests')}>{ dropdown }</select>
         </div>
-        <RenderErrors errors={this.props.errors} />
+        <Errors errors={this.props.errors} />
         <div className='button-box'>
           <button onClick={this.handleSubmit}>Request to book</button>
           <p>You won’t be charged yet</p>

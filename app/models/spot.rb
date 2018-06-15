@@ -54,9 +54,8 @@ class Spot < ApplicationRecord
   def self.search_fixup(word)
     matches = []
     Spot.all.each do |spot|
-      if [spot.name, spot.landscape].any?{ |el| el.downcase.match?(word.downcase) }
-        matches << spot
-      end
+      matches << spot if
+      [spot.name, spot.landscape].any?{ |el| el.downcase.match?(word.downcase) }
     end
     matches;
   end
