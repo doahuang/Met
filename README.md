@@ -23,17 +23,19 @@ Met, aka Middle-earth travel, is a clone of Airbnb.
 
 It is a travel booking website built with React/Redux that allows users to browse, book, and review best places to visit in the Middle-earth.
 
+![Met screenshot](https://res.cloudinary.com/doahuang/image/upload/v1529638528/met.png)
+
 ## Features
 
 A few of the things you can do with Met:
 
-+ View all spots and single spot listing
-+ Create and edit your spot listing
-+ Create, view, and delete your bookings
-+ Add and delete your reviews
++ View all spot listings and reviews
 + Search by spot name, location, landscape, etc.
 + Filter by map bounds
-+ Mobile responsive design
++ Mobile friendly layout and responsive design
++ Create and edit your spot listing when logged in
++ Create, view, and delete your bookings when logged in
++ Create and delete your reviews when logged in
 
 ## Technologies
 

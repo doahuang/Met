@@ -32,7 +32,7 @@ class CreateReview extends React.Component {
       <div className='create-review-box'>
         <form className='create-review-form'>
           <div className='rating'>
-            <p>Rating</p>
+            <p>Rate your experience </p>
             <div>
               <Rating
                 onChange={rating => this.state.rating = rating }
