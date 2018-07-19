@@ -19,7 +19,7 @@ ActiveRecord::Base.transaction do
   end
 
   photos = [980, 984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991]
-  24.times do
+  12.times do
     name = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
     loc = %w(Lindon Eriador Gondor Rohan Mordor Rhûn Rhovanion).sample
     geo = %w(Volcano Valley Castle Mountain Flatland River Forest).sample

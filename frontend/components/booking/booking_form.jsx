@@ -35,15 +35,16 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    let dropdown = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    dropdown = dropdown.map((num, i) => (
-      <option key={i} value={i + 1}>
-        {i + 1} guests
-      </option>
-    ));
+    let dropdown = [];
+    for (let i = 0; i < 20; i++) {
+      dropdown.push(
+        <option key={i} value={i + 1}>{i + 1} guests</option>
+      )
+    }
 
     let today = new Date();
-    let todayDate = today.toJSON().split('T')[0];
+    let todayDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
+    todayDate = todayDate.toJSON().split('T')[0];
 
     return (
       <div className='booking-form-container'>

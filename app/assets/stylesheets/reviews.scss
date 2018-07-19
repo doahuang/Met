@@ -37,8 +37,7 @@
   }
 
   .create-review-box {
-    padding: 10px 20px 20px;
-    border-bottom: 1px solid $lightgrey;
+    padding: 10px 0 20px;
 
     .create-review-form {
       .rating {
@@ -76,7 +75,7 @@
           resize: none;
           border: 1px solid $lightgrey;
           width: 72%;
-          height: 80px;
+          height: 40px;
           padding: 10px;
         }
 
@@ -127,7 +126,7 @@
         p {
           font-style: italic;
           margin: 10px 0;
-          word-wrap: break-word;
+          word-break: break-all;
         }
       }
     }

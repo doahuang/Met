@@ -66,14 +66,14 @@ export default class SpotShow extends React.Component {
               <div className='description'><p>{spot.description}</p></div>
             </div>
 
-            <ReviewIndexContainer spot={spot} reviews={review}
-              currentUser={currentUser} rating={rating} />
-
             <SpotMap spots={[spot]}
-              updateBounds={() => {}}
+              updateBounds={() => { }}
               center={center}
               zoom={zoom}
               gestureHandling='none' />
+
+            <ReviewIndexContainer spot={spot} reviews={review}
+              currentUser={currentUser} rating={rating} />
           </div>
 
           <div className='spot-show-booking'>
