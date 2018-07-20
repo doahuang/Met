@@ -34,6 +34,7 @@ export default class BookingIndex extends React.Component {
           </div>
           <div className='gift'></div>
         </div>
+        <h2 className='title'>Current Bookings</h2>
         <ul className='booking-index-list'>{ myBookings }</ul>
       </div>
     );
