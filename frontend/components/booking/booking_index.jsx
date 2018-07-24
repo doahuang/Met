@@ -24,17 +24,19 @@ export default class BookingIndex extends React.Component {
               deleteBooking={deleteBooking} />;
     });
 
-    let myOldBookings = myBookings.filter(el => {
-      if (!el) return null;
-      let today = new Date(), endDate = new Date(el.props.booking.endDate.split('-'));
-      return endDate < today;
+    if (!myBookings[0]) return null;
+    myBookings.sort((el1, el2) => {
+      let date1 = new Date(el1.props.booking.startDate.split('-')),
+          date2 = new Date(el2.props.booking.startDate.split('-'));
+      return date1 - date2;
     });
 
-    let myNewBookings = myBookings.filter(el => {
-      if (!el) return null;
-      let today = new Date(), endDate = new Date(el.props.booking.endDate.split('-'));
-      return endDate >= today;
+    let myOldBookings = myBookings.filter(el => {
+      let today = new Date(), startDate = new Date(el.props.booking.startDate.split('-'));
+      return startDate < today;
     });
+    
+    let myNewBookings = myBookings.filter(el => !myOldBookings.includes(el));
 
     return (
       <div className='booking-index-container'>

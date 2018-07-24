@@ -9,6 +9,8 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
   let guests = booking.guests;
   guests = guests > 1 ? `${guests} guests` : `${guests} guest`;
   
+  let hideCancel = new Date(booking.startDate.split('-')) < new Date();
+
   let startDate = drawDate(booking.startDate);
   let endDate = drawDate(booking.endDate);
   if (startDate.slice(-4) === endDate.slice(-4)) {
@@ -33,12 +35,15 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
         <p className='spot-loc'>{spot.location}</p>
         <StarRating rating={rating} />
         <div><Link to={url}>Read Your Review</Link></div>
-        <div>
-          <Link to={'/bookings'}
+        {
+          hideCancel ? null : 
+          <div>
+            <Link to={'/bookings'} 
             onClick={() => deleteBooking(booking.id)}>
-            Cancel Booking
-          </Link>
-        </div>
+              Cancel Booking
+            </Link>
+          </div>
+        }
       </div>
     </li>
   );
