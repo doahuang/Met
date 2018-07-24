@@ -41,6 +41,7 @@ export default class MarkerManager {
 
     marker.addListener('dragend', () => {
       let pos = marker.getPosition();
+      if (Math.abs(pos.lat()) > 85) return null;
       this.map.panTo(pos);
       return this.handleMarkerDrag(spot, pos);
     });

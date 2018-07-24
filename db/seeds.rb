@@ -28,7 +28,7 @@ ActiveRecord::Base.transaction do
       name: name,
       image_url: "https://picsum.photos/1600/900/?image=#{photos.sample}",
       location: loc,
-      latitude: rand(-90.0..90.0),
+      latitude: rand(-85.0..85.0),
       longitude: rand(-180.0..180.0),
       landscape: geo,
       size: rand(1..100),
