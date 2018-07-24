@@ -9,7 +9,7 @@ const BookingIndexItem = ({ spot, booking, reviews, deleteBooking }) => {
   let guests = booking.guests;
   guests = guests > 1 ? `${guests} guests` : `${guests} guest`;
   
-  let hideCancel = new Date(booking.startDate.split('-')) < new Date();
+  let hideCancel = new Date(booking.startDate.split('-')) < new Date(new Date().toDateString());
 
   let startDate = drawDate(booking.startDate);
   let endDate = drawDate(booking.endDate);

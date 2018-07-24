@@ -32,7 +32,7 @@ export default class BookingIndex extends React.Component {
     });
 
     let myOldBookings = myBookings.filter(el => {
-      let today = new Date(), startDate = new Date(el.props.booking.startDate.split('-'));
+      let today = new Date(new Date().toDateString()), startDate = new Date(el.props.booking.startDate.split('-'));
       return startDate < today;
     });
     
