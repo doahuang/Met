@@ -24,6 +24,18 @@ export default class BookingIndex extends React.Component {
               deleteBooking={deleteBooking} />;
     });
 
+    let myOldBookings = myBookings.filter(el => {
+      if (!el) return null;
+      let today = new Date(), endDate = new Date(el.props.booking.endDate.split('-'));
+      return endDate < today;
+    });
+
+    let myNewBookings = myBookings.filter(el => {
+      if (!el) return null;
+      let today = new Date(), endDate = new Date(el.props.booking.endDate.split('-'));
+      return endDate >= today;
+    });
+
     return (
       <div className='booking-index-container'>
         <div className='promo'>
@@ -34,8 +46,10 @@ export default class BookingIndex extends React.Component {
           </div>
           <div className='gift'></div>
         </div>
-        <h2 className='title'>Current Bookings</h2>
-        <ul className='booking-index-list'>{ myBookings }</ul>
+        <h2 className='title'>Upcoming Bookings</h2>
+        <ul className='booking-index-list'>{ myNewBookings }</ul>
+        <h2 className='title'>Past Bookings</h2>
+        <ul className='booking-index-list'>{ myOldBookings }</ul>
       </div>
     );
   }

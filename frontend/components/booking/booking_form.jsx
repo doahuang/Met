@@ -41,11 +41,11 @@ class BookingForm extends React.Component {
         <option key={i} value={i + 1}>{i + 1} guests</option>
       )
     }
-
+    
     let today = new Date();
     let todayDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
     todayDate = todayDate.toJSON().split('T')[0];
-
+    
     return (
       <div className='booking-form-container'>
         <div className='booking-date-calendar'>
