@@ -22,7 +22,7 @@ class Booking < ApplicationRecord
 
   def date_range
     return if !start_date || !end_date
-    return if start_date <= end_date && start_date >= Date.today
+    return if start_date <= end_date #&& start_date >= Date.today
     errors[:base] << 'Invalid date range'
   end
 end
