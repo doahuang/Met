@@ -5,6 +5,7 @@ export default class MarkerManager {
     this.markers = {};
 
     this.handleMarkerDrag = props.handleMarkerDrag;
+    this.handleMarkerClick = props.handleMarkerClick;
   }
 
   updateMarkers(spots) {
@@ -44,6 +45,10 @@ export default class MarkerManager {
       if (Math.abs(pos.lat()) > 85) return null;
       this.map.panTo(pos);
       return this.handleMarkerDrag(spot, pos);
+    });
+
+    marker.addListener('click', () => {
+      return this.handleMarkerClick(marker.spotId);
     });
   }
 }

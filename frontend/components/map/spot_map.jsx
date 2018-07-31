@@ -17,7 +17,8 @@ class SpotMap extends React.Component {
     this.MarkerManager = new MarkerManager({
       map: this.map,
       draggable,
-      handleMarkerDrag: this.handleMarkerDrag.bind(this)
+      handleMarkerDrag: this.handleMarkerDrag.bind(this),
+      handleMarkerClick: this.handleMarkerClick.bind(this)
     });
 
     this.registerListeners();
@@ -47,6 +48,12 @@ class SpotMap extends React.Component {
   handleMarkerDrag(spot, position) {
     spot.latitude = position.lat();
     spot.longitude = position.lng();
+  }
+
+  handleMarkerClick(spotId) {
+    if (!this.MarkerManager.draggable) {
+      this.props.history.push(`/spots/${spotId}`);
+    }
   }
 
   render() {
