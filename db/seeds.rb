@@ -18,7 +18,7 @@ ActiveRecord::Base.transaction do
     User.create!(username: user, password: '123123')
   end
 
-  photos = [984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991, 993, 997, 1000, 979, 974, 973, 970]
+  photos = [984, 985, 989, 994, 988, 982, 987, 990, 992, 986, 991, 993, 997, 1000, 974, 973, 970]
   24.times do
     name = [Faker::LordOfTheRings.location, Faker::Hobbit.location].sample
     loc = %w(Lindon Eriador Gondor Rohan Mordor Rhûn Rhovanion).sample
@@ -51,7 +51,7 @@ ActiveRecord::Base.transaction do
 
   72.times do
     Review.create!(
-      rating: rand(1..3),
+      rating: rand(1..5),
       body: Faker::Hobbit.quote,
       reviewer_id: rand(User.first.id..User.last.id),
       spot_id: rand(Spot.first.id..Spot.last.id)
