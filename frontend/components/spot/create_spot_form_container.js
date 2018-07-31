@@ -18,7 +18,7 @@ const mdp = dispatch => ({
 export default connect(msp, mdp)(SpotForm);
 
 const _newSpot = {
-  name: '', landscape: '', size: '', price: '', description: '',
-  imageUrl: 'https://res.cloudinary.com/doahuang/image/upload/ar_16:9,c_fill,g_auto,e_sharpen/v1533027197/met-default-spot-img.jpg',
-  latitude: 0, longitude: 0
+  name: '', landscape: '', size: '1', price: '0',
+  imageUrl: 'https://res.cloudinary.com/doahuang/image/upload/v1533030970/met-default-spot-img.jpg',
+  latitude: 0, longitude: 0, description: ''
 }

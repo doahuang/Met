@@ -9,14 +9,14 @@ const Search = ({ spots, reviews, fetchSpots, fetchReviews, updateBounds }) => {
 
   return (
     <div className='homepage'>
-      <h2>Explore Middle-earth</h2>
+      <h2>Explore Middle-earth for unique experiences.</h2>
 
       <SpotMap spots={spots}
         center={center}
         zoom={zoom}
         updateBounds={updateBounds} />
 
-      <h2>Spots around the world</h2>
+      <h2>Book your favorite spots around the world.</h2>
 
       <SpotIndex
         spots={spots} reviews={reviews}
