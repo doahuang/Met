@@ -19,8 +19,7 @@ class CreateReview extends React.Component {
 
     this.state.spotId = this.props.spot.id;
     this.props.submit(this.state)
-      .then(() => this.setState({ rating: null, body: ''}))
-      .then(this.props.clear());
+      .then(() => this.setState({ rating: null, body: ''}));
   }
 
   render() {
@@ -42,8 +41,9 @@ class CreateReview extends React.Component {
             </div>
           </div>
           <div className='review-body-box'>
-            <textarea value={this.state.body}
-              onChange={this.update('body')} placeholder='comments here' />
+            <textarea value={this.state.body} maxLength={500}
+              onChange={this.update('body')} 
+              placeholder='comments here' />
             <button onClick={this.handleSubmit}>submit</button>
           </div>
         </form>

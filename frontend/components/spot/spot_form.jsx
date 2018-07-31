@@ -56,7 +56,8 @@ class SpotForm extends React.Component {
           <form>
             <div>
               <label htmlFor='name'>Name</label>
-              <input id='name' onChange={this.update('name')} value={name} />
+              <input id='name' onChange={this.update('name')} 
+                value={name} maxLength={20}/>
 
               <label htmlFor='image'>Image</label>
               <input id='image' onChange={this.update('imageUrl')}
@@ -64,28 +65,28 @@ class SpotForm extends React.Component {
 
               <label htmlFor='location'>Location</label>
               <input id='location' onChange={this.update('location')}
-                value={location} />
+                value={location} maxLength={26}/>
 
               <label htmlFor='landscape'>Landscape</label>
               <input id='landscape' onChange={this.update('landscape')}
-                value={landscape} />
+                value={landscape} maxLength={15}/>
 
               <div className='number-box'>
                 <div>
                   <label htmlFor='size'>Size</label>
-                  <input id='size' type='number' min='1'
+                  <input id='size' type='number' min='1' max='999999999'
                     onChange={this.update('size')} value={size} />
                 </div>
                 <div>
                   <label htmlFor='price'>Price</label>
-                  <input id='price' type='number' min='0'
+                  <input id='price' type='number' min='0' max='999999999'
                     onChange={this.update('price')} value={price} />
                 </div>
               </div>
 
               <label htmlFor='description'>Description</label>
               <textarea id='description' onChange={this.update('description')}
-                defaultValue={description} />
+                defaultValue={description} maxLength={1500}/>
             </div>
           </form>
         </div>

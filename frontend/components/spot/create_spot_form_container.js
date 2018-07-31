@@ -19,6 +19,6 @@ export default connect(msp, mdp)(SpotForm);
 
 const _newSpot = {
   name: '', landscape: '', size: '', price: '', description: '',
-  imageUrl: 'https://goo.gl/5PV5jz',
+  imageUrl: 'https://res.cloudinary.com/doahuang/image/upload/ar_16:9,c_fill,g_auto,e_sharpen/v1533027197/met-default-spot-img.jpg',
   latitude: 0, longitude: 0
 }
